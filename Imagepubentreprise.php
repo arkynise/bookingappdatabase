@@ -23,10 +23,12 @@ class Imagepubentreprise
     #[ORM\Column(nullable: true)]
     private ?int $size = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updateAt',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updateAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'imagepubentreprises')]
+    #[ORM\JoinColumn(name:"idPubEntreprise_id", referencedColumnName:"id")]
+
     private ?pubentreprise $idPubEntreprise = null;
 
     public function getId(): ?int

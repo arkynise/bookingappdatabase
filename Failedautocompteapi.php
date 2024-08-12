@@ -15,15 +15,16 @@ class Failedautocompteapi
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'failedautocompteapis')]
+    #[ORM\JoinColumn(name:"salarieId", referencedColumnName:"id")]
     private ?Salarie $salarie = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'lastDateEnvoi',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $lastDateEnvoi = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'traitedAt',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $traitedAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -32,10 +33,10 @@ class Failedautocompteapi
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $mobile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'retryNb',nullable: true)]
     private ?int $retryNb = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'errorMsg',length: 255, nullable: true)]
     private ?string $errorMsg = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -44,13 +45,13 @@ class Failedautocompteapi
     #[ORM\Column(nullable: true)]
     private ?int $traited = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'traitedEmail',length: 255, nullable: true)]
     private ?string $traitedEmail = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'traitedMobile',length: 255, nullable: true)]
     private ?string $traitedMobile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'apiUserId',nullable: true)]
     private ?int $apiUserId = null;
 
     #[ORM\Column(length: 255, nullable: true)]

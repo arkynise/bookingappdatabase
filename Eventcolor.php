@@ -15,10 +15,10 @@ class Eventcolor
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'couleurHex',length: 255, nullable: true)]
     private ?string $couleurHex = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'couleurObs',length: 255, nullable: true)]
     private ?string $couleurObs = null;
 
     /**

@@ -13,16 +13,16 @@ class Codepostalville
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'codeDepartement',length: 255, nullable: true)]
     private ?string $codeDepartement = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'nomVille',length: 255, nullable: true)]
     private ?string $nomVille = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'codePostal',length: 255, nullable: true)]
     private ?string $codePostal = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'codeInsee',length: 255, nullable: true)]
     private ?string $codeInsee = null;
 
     public function getId(): ?int

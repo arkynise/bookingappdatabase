@@ -14,7 +14,7 @@ class Frais
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'nomFrais',length: 255)]
     private ?string $nomFrais = null;
 
     #[ORM\Column]
@@ -30,9 +30,11 @@ class Frais
     private ?string $observation = null;
 
     #[ORM\ManyToOne(inversedBy: 'frais')]
+    #[ORM\JoinColumn(name:"idDevis", referencedColumnName:"id")]
     private ?devis $idDevis = null;
 
     #[ORM\ManyToOne(inversedBy: 'frais')]
+    #[ORM\JoinColumn(name:"fraisLignes", referencedColumnName:"id")]
     private ?fraisligne $fraisLignes = null;
 
     public function getId(): ?int

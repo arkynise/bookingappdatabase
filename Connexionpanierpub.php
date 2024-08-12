@@ -14,16 +14,19 @@ class Connexionpanierpub
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'connexionpanierpubs')]
+    #[ORM\JoinColumn(name:"IdPubEvent_id", referencedColumnName:"id")]
     private ?pubevent $IdPubEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'connexionpanierpubs')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'connexionpanierpubs')]
+    #[ORM\JoinColumn(name:"IdPanier_id", referencedColumnName:"id")]
     private ?Panier $IdPanier = null;
 
     public function getId(): ?int

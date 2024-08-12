@@ -58,11 +58,18 @@ class Panier
     #[ORM\OneToMany(targetEntity: Urgenceevent::class, mappedBy: 'idPanier')]
     private Collection $urgenceevents;
 
+    /**
+     * @var Collection<int, Diffusionsalprest>
+     */
+    #[ORM\OneToMany(targetEntity: Diffusionsalprest::class, mappedBy: 'idPanier')]
+    private Collection $diffusionsalprests;
+
     public function __construct()
     {
         $this->connexionpanierpubs = new ArrayCollection();
         $this->paniersalaries = new ArrayCollection();
         $this->urgenceevents = new ArrayCollection();
+        $this->diffusionsalprests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -250,6 +257,36 @@ class Panier
             // set the owning side to null (unless already changed)
             if ($urgenceevent->getIdPanier() === $this) {
                 $urgenceevent->setIdPanier(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Diffusionsalprest>
+     */
+    public function getDiffusionsalprests(): Collection
+    {
+        return $this->diffusionsalprests;
+    }
+
+    public function addDiffusionsalprest(Diffusionsalprest $diffusionsalprest): static
+    {
+        if (!$this->diffusionsalprests->contains($diffusionsalprest)) {
+            $this->diffusionsalprests->add($diffusionsalprest);
+            $diffusionsalprest->setIdPanier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiffusionsalprest(Diffusionsalprest $diffusionsalprest): static
+    {
+        if ($this->diffusionsalprests->removeElement($diffusionsalprest)) {
+            // set the owning side to null (unless already changed)
+            if ($diffusionsalprest->getIdPanier() === $this) {
+                $diffusionsalprest->setIdPanier(null);
             }
         }
 

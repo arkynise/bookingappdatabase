@@ -25,7 +25,7 @@ class Imagecata
     #[ORM\Column(nullable: true)]
     private ?int $size = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updateAt',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updateAt = null;
 
     /**

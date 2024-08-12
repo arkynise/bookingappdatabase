@@ -67,7 +67,7 @@ class Client
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $grille_tarifaire = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'grilleTarifaireSurnom',length: 255, nullable: true)]
     private ?string $grilleTarifaireSurnom = null;
 
     /**

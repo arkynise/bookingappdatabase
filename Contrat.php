@@ -16,50 +16,52 @@ class Contrat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'datePublication',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $datePublication = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateSigntaure',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateSigntaure = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TotalHTrav',length: 255, nullable: true)]
     private ?string $TotalHTrav = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $path = null;
 
     #[ORM\ManyToOne(inversedBy: 'contrats')]
+    #[ORM\JoinColumn(name:"idSal", referencedColumnName:"id")]
     private ?Salarie $idSal = null;
 
     #[ORM\ManyToOne(inversedBy: 'contrats')]
+    #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
     private ?Event $idEvent = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $signer = null;
-
     #[ORM\Column(nullable: true)]
+    private ?bool $signer = null;
+
+    #[ORM\Column(name:'nbDate',nullable: true)]
     private ?int $nbDate = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'nbRepas',nullable: true)]
     private ?int $nbRepas = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'prixRepas',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $prixRepas = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'totalBrut',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $totalBrut = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'totalRepas',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $totalRepas = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'tauxHoraire',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $tauxHoraire = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $notifications = null;
+    #[ORM\Column(nullable: true)]
+    private ?bool $notifications = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $expirer = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $expirer = null;
 
     /**
      * @var Collection<int, Contrateffect>
@@ -153,12 +155,12 @@ class Contrat
         return $this;
     }
 
-    public function getSigner(): ?int
+    public function isSigner(): ?bool
     {
         return $this->signer;
     }
 
-    public function setSigner(?int $signer): static
+    public function setSigner(?bool $signer): static
     {
         $this->signer = $signer;
 
@@ -237,24 +239,24 @@ class Contrat
         return $this;
     }
 
-    public function getNotifications(): ?int
+    public function isNotifications(): ?bool
     {
         return $this->notifications;
     }
 
-    public function setNotifications(?int $notifications): static
+    public function setNotifications(?bool $notifications): static
     {
         $this->notifications = $notifications;
 
         return $this;
     }
 
-    public function getExpirer(): ?int
+    public function isExpirer(): ?bool
     {
         return $this->expirer;
     }
 
-    public function setExpirer(?int $expirer): static
+    public function setExpirer(?bool $expirer): static
     {
         $this->expirer = $expirer;
 

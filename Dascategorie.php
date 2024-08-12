@@ -15,7 +15,7 @@ class Dascategorie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Libelle',length: 255, nullable: true)]
     private ?string $Libelle = null;
 
     /**

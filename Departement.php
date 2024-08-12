@@ -13,10 +13,10 @@ class Departement
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'deptCode',length: 255, nullable: true)]
     private ?string $deptCode = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'deptNom',length: 255, nullable: true)]
     private ?string $deptNom = null;
 
     public function getId(): ?int

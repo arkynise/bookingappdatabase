@@ -25,7 +25,7 @@ class Fichierbooking
     #[ORM\Column(nullable: true)]
     private ?int $size = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updatedAT',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAT = null;
 
     /**

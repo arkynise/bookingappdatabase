@@ -17,8 +17,8 @@ class Avisnotation
     #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(name:'Avis',type: Types::SMALLINT, nullable: true)]
-    private ?int $Avis = null;
+    #[ORM\Column(name:'Avis',nullable: true)]
+    private ?bool $Avis = null;
 
     #[ORM\Column(name:'IdUserWrite',nullable: true)]
     private ?int $IdUserWrite = null;
@@ -50,12 +50,12 @@ class Avisnotation
         return $this;
     }
 
-    public function getAvis(): ?int
+    public function isAvis(): ?bool
     {
         return $this->Avis;
     }
 
-    public function setAvis(?int $Avis): static
+    public function setAvis(?bool $Avis): static
     {
         $this->Avis = $Avis;
 

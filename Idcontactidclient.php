@@ -13,10 +13,11 @@ class Idcontactidclient
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'idContact')]
     private ?int $idContact = null;
 
     #[ORM\ManyToOne(inversedBy: 'idcontactidclients')]
+    #[ORM\JoinColumn(name:"idClient", referencedColumnName:"id")]
     private ?client $idClient = null;
 
     public function getId(): ?int

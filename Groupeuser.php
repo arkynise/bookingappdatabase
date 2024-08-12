@@ -19,10 +19,11 @@ class Groupeuser
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $EnMarch = null;
+    #[ORM\Column(name:'EnMarch',nullable: true)]
+    private ?bool $EnMarch = null;
 
     #[ORM\ManyToOne(inversedBy: 'groupeusers')]
+    #[ORM\JoinColumn(name:"AttacherAgence", referencedColumnName:"id")]
     private ?Agence $AttacherAgence = null;
 
     /**
@@ -102,12 +103,12 @@ class Groupeuser
         return $this;
     }
 
-    public function getEnMarch(): ?int
+    public function isEnMarch(): ?bool
     {
         return $this->EnMarch;
     }
 
-    public function setEnMarch(?int $EnMarch): static
+    public function setEnMarch(?bool $EnMarch): static
     {
         $this->EnMarch = $EnMarch;
 

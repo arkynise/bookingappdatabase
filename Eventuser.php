@@ -14,9 +14,11 @@ class Eventuser
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'eventusers')]
+    #[ORM\JoinColumn(name:"idUser", referencedColumnName:"id")]
     private ?User $idUser = null;
 
     #[ORM\ManyToOne(inversedBy: 'eventusers')]
+    #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
     private ?Event $idEvent = null;
 
     public function getId(): ?int

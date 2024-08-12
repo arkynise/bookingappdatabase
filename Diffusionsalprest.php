@@ -14,40 +14,51 @@ class Diffusionsalprest
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdUserWrite',nullable: true)]
     private ?int $IdUserWrite = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $repSal = null;
+    #[ORM\Column(name:'repSal',nullable: true)]
+    private ?bool $repSal = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $repBack = null;
+    #[ORM\Column(name:'repBack',nullable: true)]
+    private ?bool $repBack = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $repSalFinal = null;
+    #[ORM\Column(name:'repSalFinal',nullable: true)]
+    private ?bool $repSalFinal = null;
 
     
 
     #[ORM\ManyToOne(inversedBy: 'diffusionsalprests')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?Salarie $idSalarie = null;
 
     #[ORM\ManyToOne(inversedBy: 'diffusionsalprests')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $notifications = null;
+    #[ORM\Column(nullable: true)]
+    private ?bool $notifications = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+    #[ORM\Column(name:'nbResetEnAtt',type: Types::SMALLINT, nullable: true)]
     private ?int $nbResetEnAtt = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateRetour',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateRetour = null;
 
     #[ORM\ManyToOne(inversedBy: 'diffusionsalprests')]
+    #[ORM\JoinColumn(name:"idPrestation", referencedColumnName:"id")]
     private ?prestation $idPrestation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'diffusionsalprests')]
+    #[ORM\JoinColumn(name:"idPanier", referencedColumnName:"id")]
+    private ?panier $idPanier = null;
+
+    #[ORM\ManyToOne(inversedBy: 'diffusionsalprests')]
+    #[ORM\JoinColumn(name:"idMessage", referencedColumnName:"id")]
+    private ?message $idMessage = null;
 
     public function getId(): ?int
     {
@@ -78,36 +89,36 @@ class Diffusionsalprest
         return $this;
     }
 
-    public function getRepSal(): ?int
+    public function isRepSal(): ?bool
     {
         return $this->repSal;
     }
 
-    public function setRepSal(?int $repSal): static
+    public function setRepSal(?bool $repSal): static
     {
         $this->repSal = $repSal;
 
         return $this;
     }
 
-    public function getRepBack(): ?int
+    public function isRepBack(): ?bool
     {
         return $this->repBack;
     }
 
-    public function setRepBack(?int $repBack): static
+    public function setRepBack(?bool $repBack): static
     {
         $this->repBack = $repBack;
 
         return $this;
     }
 
-    public function getRepSalFinal(): ?int
+    public function isRepSalFinal(): ?bool
     {
         return $this->repSalFinal;
     }
 
-    public function setRepSalFinal(?int $repSalFinal): static
+    public function setRepSalFinal(?bool $repSalFinal): static
     {
         $this->repSalFinal = $repSalFinal;
 
@@ -140,12 +151,12 @@ class Diffusionsalprest
         return $this;
     }
 
-    public function getNotifications(): ?int
+    public function isNotifications(): ?bool
     {
         return $this->notifications;
     }
 
-    public function setNotifications(?int $notifications): static
+    public function setNotifications(?bool $notifications): static
     {
         $this->notifications = $notifications;
 
@@ -184,6 +195,30 @@ class Diffusionsalprest
     public function setIdPrestation(?prestation $idPrestation): static
     {
         $this->idPrestation = $idPrestation;
+
+        return $this;
+    }
+
+    public function getIdPanier(): ?panier
+    {
+        return $this->idPanier;
+    }
+
+    public function setIdPanier(?panier $idPanier): static
+    {
+        $this->idPanier = $idPanier;
+
+        return $this;
+    }
+
+    public function getIdMessage(): ?message
+    {
+        return $this->idMessage;
+    }
+
+    public function setIdMessage(?message $idMessage): static
+    {
+        $this->idMessage = $idMessage;
 
         return $this;
     }

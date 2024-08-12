@@ -14,9 +14,11 @@ class Htagevent
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'htagevents')]
+    #[ORM\JoinColumn(name:"idHtag", referencedColumnName:"id")]
     private ?htag $idHtag = null;
 
     #[ORM\ManyToOne(inversedBy: 'htagevents')]
+    #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
     private ?event $idEvent = null;
 
     public function getId(): ?int

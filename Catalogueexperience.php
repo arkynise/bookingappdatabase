@@ -17,6 +17,8 @@ class Catalogueexperience
     private ?string $libelle = null;
 
     #[ORM\ManyToOne(inversedBy: 'catalogueexperiences')]
+    #[ORM\JoinColumn(name:"idCatSal", referencedColumnName:"id")]
+
     private ?Cataloguesalarie $idCatSal = null;
 
     public function getId(): ?int

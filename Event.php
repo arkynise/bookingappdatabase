@@ -16,7 +16,7 @@ class Event
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Client',length: 255, nullable: true)]
     private ?string $Client = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -25,10 +25,10 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $marque = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateDebut',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateDebut = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateFin',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateFin = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -36,40 +36,40 @@ class Event
 
     
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $staff = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NumDevis',length: 255, nullable: true)]
     private ?string $NumDevis = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Commercial',length: 255, nullable: true)]
     private ?string $Commercial = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'ContactPlace',length: 255, nullable: true)]
     private ?string $ContactPlace = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $telCtcPlace = null;
+    #[ORM\Column(name:'TelCtcPlace',length: 255, nullable: true)]
+    private ?string $TelCtcPlace = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'ChefEquipe',length: 255, nullable: true)]
     private ?string $ChefEquipe = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'MsgAnnulation',length: 255, nullable: true)]
     private ?string $MsgAnnulation = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $AnnulerEvent = null;
+    #[ORM\Column(name:'AnnulerEvent', nullable: true)]
+    private ?bool $AnnulerEvent = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $notifications = null;
+    #[ORM\Column(name:'notifications', nullable: true)]
+    private ?bool $notifications = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'MsgSms',length: 255, nullable: true)]
     private ?string $MsgSms = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'compteurUrssaf',nullable: true)]
     private ?int $compteurUrssaf = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -78,40 +78,42 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $longitude = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'obsLieu',length: 255, nullable: true)]
     private ?string $obsLieu = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $tenue = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'orderEv',length: 255, nullable: true)]
     private ?string $orderEv = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'fermerDate',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fermerDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\JoinColumn(name:"fermerUser_id", referencedColumnName:"id")]
     private ?User $fermerUser = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $model = null;
+    #[ORM\Column(name:'modeJ', nullable: true)]
+    private ?bool $modeJ = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdUserWrite',nullable: true)]
     private ?int $IdUserWrite = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idDevis',nullable: true)]
     private ?int $idDevis = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idClient',nullable: true)]
     private ?int $idClient = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'GroupeWriter',nullable: true)]
     private ?int $GroupeWriter = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $GroupeOrogine = null;
+    #[ORM\Column(name:'GroupeOrigine',nullable: true)]
+    private ?int $GroupeOrigine = null;
 
     #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\JoinColumn(name:"Brefing_id", referencedColumnName:"id")]
     private ?Fichierbooking $Brefing = null;
 
     /**
@@ -124,6 +126,7 @@ class Event
     private ?Groupeuser $groupe = null;
 
     #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\JoinColumn(name:"idFroute_id", referencedColumnName:"id")]
     private ?Froute $idFroute = null;
 
     /**
@@ -228,6 +231,12 @@ class Event
     #[ORM\OneToMany(targetEntity: Brouillard::class, mappedBy: 'idEvent')]
     private Collection $brouillards;
 
+    /**
+     * @var Collection<int, Eventurssaf>
+     */
+    #[ORM\OneToMany(targetEntity: Eventurssaf::class, mappedBy: 'id_event')]
+    private Collection $eventurssafs;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -248,6 +257,7 @@ class Event
         $this->htagevents = new ArrayCollection();
         $this->documentevents = new ArrayCollection();
         $this->brouillards = new ArrayCollection();
+        $this->eventurssafs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -394,9 +404,9 @@ class Event
         return $this->telCtcPlace;
     }
 
-    public function setTelCtcPlace(?string $telCtcPlace): static
+    public function setTelCtcPlace(?string $TelCtcPlace): static
     {
-        $this->telCtcPlace = $telCtcPlace;
+        $this->TelCtcPlace = $TelCtcPlace;
 
         return $this;
     }
@@ -425,24 +435,24 @@ class Event
         return $this;
     }
 
-    public function getAnnulerEvent(): ?int
+    public function isAnnulerEvent(): ?bool
     {
         return $this->AnnulerEvent;
     }
 
-    public function setAnnulerEvent(?int $AnnulerEvent): static
+    public function setAnnulerEvent(?bool $AnnulerEvent): static
     {
         $this->AnnulerEvent = $AnnulerEvent;
 
         return $this;
     }
 
-    public function getNotifications(): ?int
+    public function isNotifications(): ?bool
     {
         return $this->notifications;
     }
 
-    public function setNotifications(?int $notifications): static
+    public function setNotifications(?bool $notifications): static
     {
         $this->notifications = $notifications;
 
@@ -557,12 +567,12 @@ class Event
         return $this;
     }
 
-    public function getModel(): ?int
+    public function isModeJ(): ?bool
     {
-        return $this->model;
+        return $this->modeJ;
     }
 
-    public function setModel(?int $model): static
+    public function setModeJ(?bool $model): static
     {
         $this->model = $model;
 
@@ -617,14 +627,14 @@ class Event
         return $this;
     }
 
-    public function getGroupeOrogine(): ?int
+    public function getGroupeOrigine(): ?int
     {
-        return $this->GroupeOrogine;
+        return $this->GroupeOrigine;
     }
 
-    public function setGroupeOrogine(?int $GroupeOrogine): static
+    public function setGroupeOrigine(?int $GroupeOrigine): static
     {
-        $this->GroupeOrogine = $GroupeOrogine;
+        $this->GroupeOrigine = $GroupeOrigine;
 
         return $this;
     }
@@ -1165,7 +1175,7 @@ class Event
     {
         if (!$this->brouillards->contains($brouillard)) {
             $this->brouillards->add($brouillard);
-            $brouillard->setIdEvent($this);
+          
         }
 
         return $this;
@@ -1177,6 +1187,36 @@ class Event
             // set the owning side to null (unless already changed)
             if ($brouillard->getIdEvent() === $this) {
                 $brouillard->setIdEvent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Eventurssaf>
+     */
+    public function getEventurssafs(): Collection
+    {
+        return $this->eventurssafs;
+    }
+
+    public function addEventurssaf(Eventurssaf $eventurssaf): static
+    {
+        if (!$this->eventurssafs->contains($eventurssaf)) {
+            $this->eventurssafs->add($eventurssaf);
+            $eventurssaf->setIdEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEventurssaf(Eventurssaf $eventurssaf): static
+    {
+        if ($this->eventurssafs->removeElement($eventurssaf)) {
+            // set the owning side to null (unless already changed)
+            if ($eventurssaf->getIdEvent() === $this) {
+                $eventurssaf->setIdEvent(null);
             }
         }
 

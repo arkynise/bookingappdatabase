@@ -16,17 +16,18 @@ class Cataloguesalarie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+    #[ORM\Column(name:'noteClient',type: Types::SMALLINT, nullable: true)]
     private ?int $noteClient = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'obsClient',length: 255, nullable: true)]
     private ?string $obsClient = null;
 
     #[ORM\ManyToOne(inversedBy: 'cataloguesalaries')]
+    #[ORM\JoinColumn(name:"idSal", referencedColumnName:"id")]
     private ?Salarie $idSal = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $modifSal = null;
+    #[ORM\Column(name:'modifSal',nullable: true)]
+    private ?bool $modifSal = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $age = null;
@@ -34,35 +35,35 @@ class Cataloguesalarie
     #[ORM\Column(nullable: true)]
     private ?int $taille = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $permisB = null;
+    #[ORM\Column(name:'permisB',nullable: true)]
+    private ?bool $permisB = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'tailleVeste',length: 255, nullable: true)]
     private ?string $tailleVeste = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'taillePantalon',length: 255, nullable: true)]
     private ?string $taillePantalon = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $pointure = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'lvUn',length: 255, nullable: true)]
     private ?string $lvUn = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'lvDeux',length: 255, nullable: true)]
     private ?string $lvDeux = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'lvTrois',length: 255, nullable: true)]
     private ?string $lvTrois = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'lvQuatre',length: 255, nullable: true)]
     private ?string $lvQuatre = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $formation = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $backModify = null;
+    #[ORM\Column(name:'backModify',nullable: true)]
+    private ?bool $backModify = null;
 
     /**
      * @var Collection<int, Catalogueexperience>
@@ -71,7 +72,11 @@ class Cataloguesalarie
     private Collection $catalogueexperiences;
 
     #[ORM\ManyToOne(inversedBy: 'cataloguesalaries')]
+    #[ORM\JoinColumn(name:"idCat", referencedColumnName:"id")]
+
     private ?Catalogue $idCat = null;
+
+
 
     public function __construct()
     {
@@ -119,12 +124,12 @@ class Cataloguesalarie
         return $this;
     }
 
-    public function getModifSal(): ?int
+    public function isModifSal(): ?bool
     {
         return $this->modifSal;
     }
 
-    public function setModifSal(?int $modifSal): static
+    public function setModifSal(?bool $modifSal): static
     {
         $this->modifSal = $modifSal;
 
@@ -155,12 +160,12 @@ class Cataloguesalarie
         return $this;
     }
 
-    public function getPermisB(): ?int
+    public function isPermisB(): ?bool
     {
         return $this->permisB;
     }
 
-    public function setPermisB(?int $permisB): static
+    public function setPermisB(?bool $permisB): static
     {
         $this->permisB = $permisB;
 
@@ -263,12 +268,12 @@ class Cataloguesalarie
         return $this;
     }
 
-    public function getBackModify(): ?int
+    public function isBackModify(): ?bool
     {
         return $this->backModify;
     }
 
-    public function setBackModify(?int $backModify): static
+    public function setBackModify(?bool $backModify): static
     {
         $this->backModify = $backModify;
 
@@ -316,4 +321,6 @@ class Cataloguesalarie
 
         return $this;
     }
+
+   
 }

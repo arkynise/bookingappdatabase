@@ -23,16 +23,17 @@ class Imagebooking
     #[ORM\Column(nullable: true)]
     private ?int $size = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE,nullable: true)]
+    #[ORM\Column(name:'updateAt',type: Types::DATETIME_MUTABLE,nullable: true)]
     private ?\DateTimeInterface $updateAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'imagebookings')]
+    #[ORM\JoinColumn(name:"IdSalarie_id", referencedColumnName:"id")]
     private ?Salarie $IdSalarie = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'fermerImg',nullable: true)]
     private ?bool $fermerImg = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'numTrie',nullable: true)]
     private ?int $numTrie = null;
 
     public function getId(): ?int

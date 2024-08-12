@@ -14,49 +14,50 @@ class Contrateffect
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idAffect',nullable: true)]
     private ?int $idAffect = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateM',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateM = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'debutM',length: 255, nullable: true)]
     private ?string $debutM = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'finM',length: 255, nullable: true)]
     private ?string $finM = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'hTrav',length: 255, nullable: true)]
     private ?string $hTrav = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $profile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idProfile',nullable: true)]
     private ?int $idProfile = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $mission = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idMission',nullable: true)]
     private ?int $idMission = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'Salaire',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $Salaire = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'Repas',nullable: true)]
     private ?int $Repas = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DebForfait',length: 255, nullable: true)]
     private ?string $DebForfait = null;
 
     #[ORM\ManyToOne(inversedBy: 'contrateffects')]
+    #[ORM\JoinColumn(name:"idContrat_id", referencedColumnName:"id")]
     private ?Contrat $idContrat = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'hDebOld',length: 255, nullable: true)]
     private ?string $hDebOld = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'hFinOld',length: 255, nullable: true)]
     private ?string $hFinOld = null;
 
     public function getId(): ?int

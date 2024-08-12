@@ -14,6 +14,7 @@ class Home
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'homes')]
+    #[ORM\JoinColumn(name:"imageHome", referencedColumnName:"id")]
     private ?Media $imageHome = null;
 
     public function getId(): ?int

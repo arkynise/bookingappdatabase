@@ -14,7 +14,7 @@ class Image
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updateAt',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updateAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -27,7 +27,7 @@ class Image
     private ?int $size = null;
 
     #[ORM\ManyToOne(inversedBy: 'images')]
-    private ?salarietest $user_id = null;
+    private ?salarietest $user = null;
 
     public function getId(): ?int
     {
@@ -82,14 +82,14 @@ class Image
         return $this;
     }
 
-    public function getUserId(): ?salarietest
+    public function getUser(): ?salarietest
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(?salarietest $user_id): static
+    public function setUser(?salarietest $user): static
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }

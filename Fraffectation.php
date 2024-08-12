@@ -14,119 +14,126 @@ class Fraffectation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdUserWrite',nullable: true)]
     private ?int $IdUserWrite = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idMission',nullable: true)]
     private ?int $idMission = null;
 
     #[ORM\ManyToOne(inversedBy: 'fraffectations')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'fraffectations')]
+    #[ORM\JoinColumn(name:"IdFroute_id", referencedColumnName:"id")]
     private ?Froute $IdFroute = null;
 
     #[ORM\ManyToOne(inversedBy: 'fraffectations')]
+    #[ORM\JoinColumn(name:"idSalarie_id", referencedColumnName:"id")]
     private ?Salarie $idSalarie = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Obs',length: 255, nullable: true)]
     private ?string $Obs = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateM',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateM = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'debutM',length: 255, nullable: true)]
     private ?string $debutM = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'finM',length: 255, nullable: true)]
     private ?string $finM = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idPrestEvent',nullable: true)]
     private ?int $idPrestEvent = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $profile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idProfile',nullable: true)]
     private ?int $idProfile = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $mission = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DebForfait',length: 255, nullable: true)]
     private ?string $DebForfait = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'Salaire',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $Salaire = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'Repas',nullable: true)]
     private ?int $Repas = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'Facturer',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $Facturer = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'hTrav',length: 255, nullable: true)]
     private ?string $hTrav = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IsNew',nullable: true)]
     private ?int $IsNew = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'pdfCtr',nullable: true)]
     private ?int $pdfCtr = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'hDebOld',length: 255, nullable: true)]
     private ?string $hDebOld = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'hFinOld',length: 255, nullable: true)]
     private ?string $hFinOld = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'repModif',nullable: true)]
     private ?bool $repModif = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $notifications = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'repFinal',nullable: true)]
     private ?bool $repFinal = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateAffectation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateAffectation = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateValabeAu',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateValabeAu = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'intD')]
     private ?int $intD = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'intF',nullable: true)]
     private ?int $intF = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'infoUrssaf',nullable: true)]
     private ?int $infoUrssaf = null;
 
     #[ORM\ManyToOne(inversedBy: 'fraffectations')]
+    #[ORM\JoinColumn(name:"IdUsrOperation_id", referencedColumnName:"id")]
     private ?Ursoperation $IdUsrOperation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'salNewM',nullable: true)]
     private ?bool $salNewM = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'salVuLe',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $salVuLe = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $grilles = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'grilleClient',length: 255, nullable: true)]
     private ?string $grilleClient = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'grilleSurnom',length: 255, nullable: true)]
     private ?string $grilleSurnom = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'enTraitement',nullable: true)]
     private ?bool $enTraitement = null;
+
+    #[ORM\Column(name:'prestAnnule',nullable: true)]
+    private ?bool $prestAnnule = null;
 
     public function getId(): ?int
     {
@@ -585,6 +592,18 @@ class Fraffectation
     public function setEnTraitement(?bool $enTraitement): static
     {
         $this->enTraitement = $enTraitement;
+
+        return $this;
+    }
+
+    public function isPrestAnnule(): ?bool
+    {
+        return $this->prestAnnule;
+    }
+
+    public function setPrestAnnule(?bool $prestAnnule): static
+    {
+        $this->prestAnnule = $prestAnnule;
 
         return $this;
     }

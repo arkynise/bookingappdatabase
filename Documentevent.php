@@ -14,7 +14,7 @@ class Documentevent
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'userWrite',length: 255, nullable: true)]
     private ?string $userWrite = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -26,13 +26,15 @@ class Documentevent
     #[ORM\Column(nullable: true)]
     private ?int $size = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updateAt',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updateAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'documentevents')]
+    #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
     private ?event $idEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'documentevents')]
+    #[ORM\JoinColumn(name:"idLibelle", referencedColumnName:"id")]
     private ?typedocumentevent $idLibelle = null;
 
     public function getId(): ?int

@@ -28,8 +28,8 @@ class Agence
     #[ORM\Column(name:"CodeAPE",length: 255,)]
     private ?string $CodeAPE = null;
 
-    #[ORM\Column(name:'PiedContart',type: Types::TEXT, nullable: true)]
-    private ?string $PiedContart = null;
+    #[ORM\Column(name:'PiedContrat',type: Types::TEXT, nullable: true)]
+    private ?string $PiedContrat = null;
 
     #[ORM\Column(length: 255)]
     private ?string $tel = null;
@@ -52,8 +52,8 @@ class Agence
     #[ORM\Column(name:'AuthPrenom',length: 255)]
     private ?string $AuthPrenom = null;
 
-    #[ORM\Column(name:'AuthPasword',length: 255)]
-    private ?string $AuthPasword = null;
+    #[ORM\Column(name:'AuthPassword',length: 255)]
+    private ?string $AuthPassword = null;
 
     #[ORM\Column(name:'NomEntite',length: 255)]
     private ?string $NomEntite = null;
@@ -122,14 +122,14 @@ class Agence
         return $this;
     }
 
-    public function getPiedContart(): ?string
+    public function getPiedContrat(): ?string
     {
-        return $this->PiedContart;
+        return $this->PiedContrat;
     }
 
-    public function setPiedContart(?string $PiedContart): static
+    public function setPiedContrat(?string $PiedContrat): static
     {
-        $this->PiedContart = $PiedContart;
+        $this->PiedContrat = $PiedContrat;
 
         return $this;
     }
@@ -218,14 +218,14 @@ class Agence
         return $this;
     }
 
-    public function getAuthPasword(): ?string
+    public function getAuthPassword(): ?string
     {
-        return $this->AuthPasword;
+        return $this->AuthPassword;
     }
 
-    public function setAuthPasword(string $AuthPasword): static
+    public function setAuthPassword(string $AuthPassword): static
     {
-        $this->AuthPasword = $AuthPasword;
+        $this->AuthPassword = $AuthPassword;
 
         return $this;
     }

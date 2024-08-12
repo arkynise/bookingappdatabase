@@ -37,9 +37,16 @@ class Message
     #[ORM\OneToMany(targetEntity: Messageprestation::class, mappedBy: 'idMsg')]
     private Collection $messageprestations;
 
+    /**
+     * @var Collection<int, Diffusionsalprest>
+     */
+    #[ORM\OneToMany(targetEntity: Diffusionsalprest::class, mappedBy: 'idMessage')]
+    private Collection $diffusionsalprests;
+
     public function __construct()
     {
         $this->messageprestations = new ArrayCollection();
+        $this->diffusionsalprests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,6 +138,36 @@ class Message
             // set the owning side to null (unless already changed)
             if ($messageprestation->getIdMsg() === $this) {
                 $messageprestation->setIdMsg(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Diffusionsalprest>
+     */
+    public function getDiffusionsalprests(): Collection
+    {
+        return $this->diffusionsalprests;
+    }
+
+    public function addDiffusionsalprest(Diffusionsalprest $diffusionsalprest): static
+    {
+        if (!$this->diffusionsalprests->contains($diffusionsalprest)) {
+            $this->diffusionsalprests->add($diffusionsalprest);
+            $diffusionsalprest->setIdMessage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiffusionsalprest(Diffusionsalprest $diffusionsalprest): static
+    {
+        if ($this->diffusionsalprests->removeElement($diffusionsalprest)) {
+            // set the owning side to null (unless already changed)
+            if ($diffusionsalprest->getIdMessage() === $this) {
+                $diffusionsalprest->setIdMessage(null);
             }
         }
 

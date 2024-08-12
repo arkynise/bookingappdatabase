@@ -20,25 +20,25 @@ class Catalogue
     #[ORM\JoinColumn(name:"groupe", referencedColumnName:"id")]
     private ?Groupeuser $groupe = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $datecreation = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateEnvoie',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateEnvoie = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateRetour',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateRetour = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idClient',nullable: true)]
     private ?int $idClient = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $client = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idCtc',nullable: true)]
     private ?int $idCtc = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -47,22 +47,25 @@ class Catalogue
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $libelle = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateDebut',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateDebut = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateFin',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateFin = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $statut = null;
 
     #[ORM\ManyToOne(inversedBy: 'catalogues')]
+    #[ORM\JoinColumn(name:'imgCat_id', referencedColumnName:"id")]
+
     private ?Imagecata $imgCat = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'tokenUrl',length: 255, nullable: true)]
     private ?string $tokenUrl = null;
 
     #[ORM\ManyToOne(inversedBy: 'catalogues')]
+    #[ORM\JoinColumn(name:"idParam_id", referencedColumnName:"id")]
     private ?Parametrecatalogue $idParam = null;
 
     /**

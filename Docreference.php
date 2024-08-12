@@ -17,16 +17,16 @@ class Docreference
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $path = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'typeDoc',length: 255, nullable: true)]
     private ?string $typeDoc = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'salId',nullable: true)]
     private ?int $salId = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'docId',nullable: true)]
     private ?int $docId = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updateAt',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updateAt = null;
 
     public function getId(): ?int

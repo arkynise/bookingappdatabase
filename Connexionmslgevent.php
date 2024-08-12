@@ -14,16 +14,18 @@ class Connexionmslgevent
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdUserWrite',nullable: true)]
     private ?int $IdUserWrite = null;
 
     #[ORM\ManyToOne(inversedBy: 'connexionmslgevents')]
+    #[ORM\JoinColumn(name:"IdMslg_id", referencedColumnName:"id")]
     private ?Missiondispo $IdMslg = null;
 
     #[ORM\ManyToOne(inversedBy: 'connexionmslgevents')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
     public function getId(): ?int

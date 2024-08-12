@@ -23,7 +23,7 @@ class Codesignature
     #[ORM\Column(nullable: true)]
     private ?bool $verifié = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     public function getId(): ?int

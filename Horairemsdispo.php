@@ -15,19 +15,20 @@ class Horairemsdispo
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'debutH',length: 255, nullable: true)]
     private ?string $debutH = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'finH',length: 255, nullable: true)]
     private ?string $finH = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'intDeb',nullable: true)]
     private ?int $intDeb = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'intFin',nullable: true)]
     private ?int $intFin = null;
 
     #[ORM\ManyToOne(inversedBy: 'horairemsdispos')]
+    #[ORM\JoinColumn(name:"idJour", referencedColumnName:"id")]
     private ?Jourmsdispo $idJour = null;
 
     /**

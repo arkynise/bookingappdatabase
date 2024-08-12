@@ -16,73 +16,73 @@ class Disponibilite
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $DimancheAM = null;
+    #[ORM\Column(name:'DimancheAM', nullable: true)]
+    private ?bool $DimancheAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $DimanchePM = null;
+    #[ORM\Column(name:'DimanchePM', nullable: true)]
+    private ?bool $DimanchePM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $DimancheSoir = null;
+    #[ORM\Column(name:'DimancheSoir', nullable: true)]
+    private ?bool $DimancheSoir = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $SamediAM = null;
+    #[ORM\Column(name:'SamediAM', nullable: true)]
+    private ?bool $SamediAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $SamediPM = null;
+    #[ORM\Column(name:'SamediPM',nullable: true)]
+    private ?bool $SamediPM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $SamediSoir = null;
+    #[ORM\Column(name:'SamediSoir', nullable: true)]
+    private ?bool $SamediSoir = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $VendrediAM = null;
+    #[ORM\Column(name:'VendrediAM',nullable: true)]
+    private ?bool $VendrediAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $VendrediPM = null;
+    #[ORM\Column(name:'VendrediPM',nullable: true)]
+    private ?bool $VendrediPM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $VendrediSoir = null;
+    #[ORM\Column(name:'VendrediSoir',nullable: true)]
+    private ?bool $VendrediSoir = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $JeudiAM = null;
+    #[ORM\Column(name:'JeudiAM',nullable: true)]
+    private ?bool $JeudiAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $JeudiPM = null;
+    #[ORM\Column(name:'JeudiPM',nullable: true)]
+    private ?bool $JeudiPM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $JeudiSoir = null;
+    #[ORM\Column(name:'JeudiSoir', nullable: true)]
+    private ?bool $JeudiSoir = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MercrediAM = null;
+    #[ORM\Column(name:'MercrediAM',nullable: true)]
+    private ?bool $MercrediAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MercrediPM = null;
+    #[ORM\Column(name:'MercrediPM',nullable: true)]
+    private ?bool $MercrediPM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MercrediSoir = null;
+    #[ORM\Column(name:'MercrediSoir' ,nullable: true)]
+    private ?bool $MercrediSoir = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MardiAM = null;
+    #[ORM\Column(name:'MardiAM',nullable: true)]
+    private ?bool $MardiAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MardiPM = null;
+    #[ORM\Column(name:'MardiPM', nullable: true)]
+    private ?bool $MardiPM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MardiSoir = null;
+    #[ORM\Column(name:'MardiSoir',nullable: true)]
+    private ?bool $MardiSoir = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $LundiAM = null;
+    #[ORM\Column(name:'LundiAM', nullable: true)]
+    private ?bool $LundiAM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $LundiPM = null;
+    #[ORM\Column(name:'LundiPM', nullable: true)]
+    private ?bool $LundiPM = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $LundiSoir = null;
+    #[ORM\Column(name:'LundiSoir', nullable: true)]
+    private ?bool $LundiSoir = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateDebut',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateDebut = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateFin',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateFin = null;
 
     /**
@@ -105,252 +105,252 @@ class Disponibilite
         return $this->id;
     }
 
-    public function getDimancheAM(): ?int
+    public function isDimancheAM(): ?bool
     {
         return $this->DimancheAM;
     }
 
-    public function setDimancheAM(?int $DimancheAM): static
+    public function setDimancheAM(?bool $DimancheAM): static
     {
         $this->DimancheAM = $DimancheAM;
 
         return $this;
     }
 
-    public function getDimanchePM(): ?int
+    public function isDimanchePM(): ?bool
     {
         return $this->DimanchePM;
     }
 
-    public function setDimanchePM(?int $DimanchePM): static
+    public function setDimanchePM(?bool $DimanchePM): static
     {
         $this->DimanchePM = $DimanchePM;
 
         return $this;
     }
 
-    public function getDimancheSoir(): ?int
+    public function isDimancheSoir(): ?bool
     {
         return $this->DimancheSoir;
     }
 
-    public function setDimancheSoir(?int $DimancheSoir): static
+    public function setDimancheSoir(?bool $DimancheSoir): static
     {
         $this->DimancheSoir = $DimancheSoir;
 
         return $this;
     }
 
-    public function getSamediAM(): ?int
+    public function isSamediAM(): ?bool
     {
         return $this->SamediAM;
     }
 
-    public function setSamediAM(?int $SamediAM): static
+    public function setSamediAM(?bool $SamediAM): static
     {
         $this->SamediAM = $SamediAM;
 
         return $this;
     }
 
-    public function getSamediPM(): ?int
+    public function isSamediPM(): ?bool
     {
         return $this->SamediPM;
     }
 
-    public function setSamediPM(?int $SamediPM): static
+    public function setSamediPM(?bool $SamediPM): static
     {
         $this->SamediPM = $SamediPM;
 
         return $this;
     }
 
-    public function getSamediSoir(): ?int
+    public function isSamediSoir(): ?bool
     {
         return $this->SamediSoir;
     }
 
-    public function setSamediSoir(?int $SamediSoir): static
+    public function setSamediSoir(?bool $SamediSoir): static
     {
         $this->SamediSoir = $SamediSoir;
 
         return $this;
     }
 
-    public function getVendrediAM(): ?int
+    public function isVendrediAM(): ?bool
     {
         return $this->VendrediAM;
     }
 
-    public function setVendrediAM(?int $VendrediAM): static
+    public function setVendrediAM(?bool $VendrediAM): static
     {
         $this->VendrediAM = $VendrediAM;
 
         return $this;
     }
 
-    public function getVendrediPM(): ?int
+    public function isVendrediPM(): ?bool
     {
         return $this->VendrediPM;
     }
 
-    public function setVendrediPM(?int $VendrediPM): static
+    public function setVendrediPM(?bool $VendrediPM): static
     {
         $this->VendrediPM = $VendrediPM;
 
         return $this;
     }
 
-    public function getVendrediSoir(): ?int
+    public function isVendrediSoir(): ?bool
     {
         return $this->VendrediSoir;
     }
 
-    public function setVendrediSoir(?int $VendrediSoir): static
+    public function setVendrediSoir(?bool $VendrediSoir): static
     {
         $this->VendrediSoir = $VendrediSoir;
 
         return $this;
     }
 
-    public function getJeudiAM(): ?int
+    public function isJeudiAM(): ?bool
     {
         return $this->JeudiAM;
     }
 
-    public function setJeudiAM(?int $JeudiAM): static
+    public function setJeudiAM(?bool $JeudiAM): static
     {
         $this->JeudiAM = $JeudiAM;
 
         return $this;
     }
 
-    public function getJeudiPM(): ?int
+    public function isJeudiPM(): ?bool
     {
         return $this->JeudiPM;
     }
 
-    public function setJeudiPM(?int $JeudiPM): static
+    public function setJeudiPM(?bool $JeudiPM): static
     {
         $this->JeudiPM = $JeudiPM;
 
         return $this;
     }
 
-    public function getJeudiSoir(): ?int
+    public function isJeudiSoir(): ?bool
     {
         return $this->JeudiSoir;
     }
 
-    public function setJeudiSoir(?int $JeudiSoir): static
+    public function setJeudiSoir(?bool $JeudiSoir): static
     {
         $this->JeudiSoir = $JeudiSoir;
 
         return $this;
     }
 
-    public function getMercrediAM(): ?int
+    public function isMercrediAM(): ?bool
     {
         return $this->MercrediAM;
     }
 
-    public function setMercrediAM(?int $MercrediAM): static
+    public function setMercrediAM(?bool $MercrediAM): static
     {
         $this->MercrediAM = $MercrediAM;
 
         return $this;
     }
 
-    public function getMercrediPM(): ?int
+    public function isMercrediPM(): ?bool
     {
         return $this->MercrediPM;
     }
 
-    public function setMercrediPM(?int $MercrediPM): static
+    public function setMercrediPM(?bool $MercrediPM): static
     {
         $this->MercrediPM = $MercrediPM;
 
         return $this;
     }
 
-    public function getMercrediSoir(): ?int
+    public function isMercrediSoir(): ?bool
     {
         return $this->MercrediSoir;
     }
 
-    public function setMercrediSoir(?int $MercrediSoir): static
+    public function setMercrediSoir(?bool $MercrediSoir): static
     {
         $this->MercrediSoir = $MercrediSoir;
 
         return $this;
     }
 
-    public function getMardiAM(): ?int
+    public function isMardiAM(): ?bool
     {
         return $this->MardiAM;
     }
 
-    public function setMardiAM(?int $MardiAM): static
+    public function setMardiAM(?bool $MardiAM): static
     {
         $this->MardiAM = $MardiAM;
 
         return $this;
     }
 
-    public function getMardiPM(): ?int
+    public function isMardiPM(): ?bool
     {
         return $this->MardiPM;
     }
 
-    public function setMardiPM(?int $MardiPM): static
+    public function setMardiPM(?bool $MardiPM): static
     {
         $this->MardiPM = $MardiPM;
 
         return $this;
     }
 
-    public function getMardiSoir(): ?int
+    public function isMardiSoir(): ?bool
     {
         return $this->MardiSoir;
     }
 
-    public function setMardiSoir(?int $MardiSoir): static
+    public function setMardiSoir(?bool $MardiSoir): static
     {
         $this->MardiSoir = $MardiSoir;
 
         return $this;
     }
 
-    public function getLundiAM(): ?int
+    public function isLundiAM(): ?bool
     {
         return $this->LundiAM;
     }
 
-    public function setLundiAM(?int $LundiAM): static
+    public function setLundiAM(?bool $LundiAM): static
     {
         $this->LundiAM = $LundiAM;
 
         return $this;
     }
 
-    public function getLundiPM(): ?int
+    public function isLundiPM(): ?bool
     {
         return $this->LundiPM;
     }
 
-    public function setLundiPM(?int $LundiPM): static
+    public function setLundiPM(?bool $LundiPM): static
     {
         $this->LundiPM = $LundiPM;
 
         return $this;
     }
 
-    public function getLundiSoir(): ?int
+    public function isLundiSoir(): ?bool
     {
         return $this->LundiSoir;
     }
 
-    public function setLundiSoir(?int $LundiSoir): static
+    public function setLundiSoir(?bool $LundiSoir): static
     {
         $this->LundiSoir = $LundiSoir;
 

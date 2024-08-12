@@ -149,6 +149,12 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\OneToMany(targetEntity: Devis::class, mappedBy: 'IdUserWrite')]
     private Collection $devis;
 
+    /**
+     * @var Collection<int, Eventurssaf>
+     */
+    #[ORM\OneToMany(targetEntity: Eventurssaf::class, mappedBy: 'id_user')]
+    private Collection $eventurssafs;
+
     public function __construct()
     {
         parent::__construct();
@@ -161,6 +167,7 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
         $this->observents = new ArrayCollection();
         $this->events = new ArrayCollection();
         $this->devis = new ArrayCollection();
+        $this->eventurssafs = new ArrayCollection();
     }
 
     public function getImage(): ?Media
@@ -685,6 +692,36 @@ class User extends BaseUser implements UserInterface, PasswordAuthenticatedUserI
     public function getDevis(): Collection
     {
         return $this->devis;
+    }
+
+    /**
+     * @return Collection<int, Eventurssaf>
+     */
+    public function getEventurssafs(): Collection
+    {
+        return $this->eventurssafs;
+    }
+
+    public function addEventurssaf(Eventurssaf $eventurssaf): static
+    {
+        if (!$this->eventurssafs->contains($eventurssaf)) {
+            $this->eventurssafs->add($eventurssaf);
+            $eventurssaf->setIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEventurssaf(Eventurssaf $eventurssaf): static
+    {
+        if ($this->eventurssafs->removeElement($eventurssaf)) {
+            // set the owning side to null (unless already changed)
+            if ($eventurssaf->getIdUser() === $this) {
+                $eventurssaf->setIdUser(null);
+            }
+        }
+
+        return $this;
     }
 
 

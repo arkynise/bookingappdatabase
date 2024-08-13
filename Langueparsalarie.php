@@ -14,12 +14,15 @@ class Langueparsalarie
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'langueparsalaries')]
+    #[ORM\JoinColumn(name:"idSalarie_id", referencedColumnName:"id")]
     private ?Salarie $idSalarie = null;
 
     #[ORM\ManyToOne(inversedBy: 'langueparsalaries')]
+    #[ORM\JoinColumn(name:"idLangue_id", referencedColumnName:"id")]
     private ?Langue $idLangue = null;
 
     #[ORM\ManyToOne(inversedBy: 'langueparsalaries')]
+    #[ORM\JoinColumn(name:"idNiveauLangue_id", referencedColumnName:"id")]
     private ?Niveaulangue $idNiveauLangue = null;
 
     public function getId(): ?int

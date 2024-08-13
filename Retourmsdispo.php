@@ -14,25 +14,29 @@ class Retourmsdispo
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateReponse',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateReponse = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'repSal',nullable: true)]
     private ?bool $repSal = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'jourEntiere',nullable: true)]
     private ?bool $jourEntiere = null;
 
     #[ORM\ManyToOne(inversedBy: 'retourmsdispos')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?Salarie $idSalarie = null;
 
     #[ORM\ManyToOne(inversedBy: 'retourmsdispos')]
+    #[ORM\JoinColumn(name:"idMsDispo_id", referencedColumnName:"id")]
     private ?Missiondispo $idMsDispo = null;
 
     #[ORM\ManyToOne(inversedBy: 'retourmsdispos')]
+    #[ORM\JoinColumn(name:"idJour_id", referencedColumnName:"id")]
     private ?Jourmsdispo $idJour = null;
 
     #[ORM\ManyToOne(inversedBy: 'retourmsdispos')]
+    #[ORM\JoinColumn(name:"idHoraire_id", referencedColumnName:"id")]
     private ?Horairemsdispo $idHoraire = null;
 
     public function getId(): ?int

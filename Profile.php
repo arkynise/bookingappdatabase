@@ -16,13 +16,13 @@ class Profile
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'nomProfile',length: 255, nullable: true)]
     private ?string $nomProfile = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'tauxVente',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $tauxVente = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'tauxAchat',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $tauxAchat = null;
 
     /**

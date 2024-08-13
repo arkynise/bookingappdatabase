@@ -16,28 +16,30 @@ class Panier
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'paniers')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name:"idMsg_id", referencedColumnName:"id")]
     private ?Message $idMsg = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Libelle',length: 255, nullable: true)]
     private ?string $Libelle = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'dltDoublon',nullable: true)]
     private ?bool $dltDoublon = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'cloture',nullable: true)]
     private ?bool $cloture = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'titrePop',length: 255, nullable: true)]
     private ?string $titrePop = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'msgPop',length: 255, nullable: true)]
     private ?string $msgPop = null;
 
     /**

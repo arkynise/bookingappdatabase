@@ -17,9 +17,11 @@ class Panierpub
     private ?bool $notifications = null;
 
     #[ORM\ManyToOne(inversedBy: 'panierpubs')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     #[ORM\ManyToOne(inversedBy: 'panierpubs')]
+    #[ORM\JoinColumn(name:"idPub_id", referencedColumnName:"id")]
     private ?pubevent $idPub = null;
 
     public function getId(): ?int

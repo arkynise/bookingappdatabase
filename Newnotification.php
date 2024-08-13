@@ -13,25 +13,25 @@ class Newnotification
     #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?Salarie $idSalarie = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newMissionsProposes',nullable: true)]
     private ?bool $newMissionsProposes = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newEventsAconfirmer',nullable: true)]
     private ?bool $newEventsAconfirmer = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newEventsListe',nullable: true)]
     private ?bool $newEventsListe = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newEventModified',nullable: true)]
     private ?bool $newEventModified = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newContratNonSigne',nullable: true)]
     private ?bool $newContratNonSigne = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newMissionLongue',nullable: true)]
     private ?bool $newMissionLongue = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'newFashionNews',nullable: true)]
     private ?bool $newFashionNews = null;
 
     

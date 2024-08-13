@@ -14,13 +14,15 @@ class Messageprestation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'messageprestations')]
+    #[ORM\JoinColumn(name:"idPrestation", referencedColumnName:"id")]
     private ?prestation $idPrestation = null;
 
     #[ORM\ManyToOne(inversedBy: 'messageprestations')]
+    #[ORM\JoinColumn(name:"idMsg", referencedColumnName:"id")]
     private ?message $idMsg = null;
 
     public function getId(): ?int

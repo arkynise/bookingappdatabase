@@ -14,31 +14,32 @@ class Ursvacation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Poste',length: 255, nullable: true)]
     private ?string $Poste = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'NbRepas',nullable: true)]
     private ?int $NbRepas = null;
 
-    #[ORM\Column(nullable: true,type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'MontantRepas',nullable: true,type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $MontantRepas = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'Date',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $Date = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'HeureDebut',length: 255, nullable: true)]
     private ?string $HeureDebut = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'HeureFin',length: 255, nullable: true)]
     private ?string $HeureFin = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Duree',length: 255, nullable: true)]
     private ?string $Duree = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'SalaireBrut',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $SalaireBrut = null;
 
     #[ORM\ManyToOne(inversedBy: 'ursvacations')]
+    #[ORM\JoinColumn(name:"IdOperation_id", referencedColumnName:"id")]
     private ?Ursoperation $IdOperation = null;
 
 

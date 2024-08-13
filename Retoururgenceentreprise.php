@@ -14,16 +14,18 @@ class Retoururgenceentreprise
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(name:'dateReponse',type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateReponse = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'repSal',nullable: true)]
     private ?bool $repSal = null;
 
     #[ORM\ManyToOne(inversedBy: 'retoururgenceentreprises')]
+    #[ORM\JoinColumn(name:"idUrgenceEntreprise_id", referencedColumnName:"id")]
     private ?urgenceentreprise $idUrgenceEntreprise = null;
 
     #[ORM\ManyToOne(inversedBy: 'retoururgenceentreprises')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     public function getId(): ?int

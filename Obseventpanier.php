@@ -14,9 +14,11 @@ class Obseventpanier
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'obseventpaniers')]
-    private ?Observent $idObsEvent = null;
+    #[ORM\JoinColumn(name:"idObsEvent_id", referencedColumnName:"id")]
+    private ?Obsevent $idObsEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'obseventpaniers')]
+    #[ORM\JoinColumn(name:"IdSalarie_id", referencedColumnName:"id")]
     private ?Salarie $IdSalarie = null;
 
     public function getId(): ?int
@@ -24,12 +26,12 @@ class Obseventpanier
         return $this->id;
     }
 
-    public function getIdObsEvent(): ?Observent
+    public function getIdObsEvent(): ?Obsevent
     {
         return $this->idObsEvent;
     }
 
-    public function setIdObsEvent(?Observent $idObsEvent): static
+    public function setIdObsEvent(?Obsevent $idObsEvent): static
     {
         $this->idObsEvent = $idObsEvent;
 

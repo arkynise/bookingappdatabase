@@ -14,9 +14,11 @@ class Paniermsdispo
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'paniermsdispos')]
+    #[ORM\JoinColumn(name:"idMsDispo_id", referencedColumnName:"id")]
     private ?Missiondispo $idMsDispo = null;
 
     #[ORM\ManyToOne(inversedBy: 'paniermsdispos')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?Salarie $idSalarie = null;
 
     #[ORM\Column(nullable: true)]

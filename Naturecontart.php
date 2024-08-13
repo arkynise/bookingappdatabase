@@ -15,10 +15,10 @@ class Naturecontart
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CodeNature',length: 255, nullable: true)]
     private ?string $CodeNature = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Libelle',length: 255, nullable: true)]
     private ?string $Libelle = null;
 
     /**

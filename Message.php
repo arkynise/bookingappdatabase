@@ -16,19 +16,20 @@ class Message
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'datePublication',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $datePublication = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $text = null;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]
+    #[ORM\JoinColumn(name:"idEvent_id", referencedColumnName:"id")]
     private ?Event $idEvent = null;
 
-    #[ORM\Column(type: Types::SMALLINT)]
+    #[ORM\Column(name:'PubMsg',type: Types::SMALLINT)]
     private ?int $PubMsg = null;
 
     /**

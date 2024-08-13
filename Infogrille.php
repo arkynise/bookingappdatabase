@@ -13,10 +13,10 @@ class Infogrille
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NomGrille',length: 255, nullable: true)]
     private ?string $NomGrille = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Surnom',length: 255, nullable: true)]
     private ?string $Surnom = null;
 
     public function getId(): ?int

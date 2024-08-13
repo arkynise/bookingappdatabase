@@ -15,7 +15,7 @@ class Mission
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'nomMission',length: 255)]
     private ?string $nomMission = null;
 
     /**

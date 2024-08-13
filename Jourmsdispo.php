@@ -16,13 +16,14 @@ class Jourmsdispo
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateJour',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateJour = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'lieuJour',length: 255, nullable: true)]
     private ?string $lieuJour = null;
 
     #[ORM\ManyToOne(inversedBy: 'jourmsdispos')]
+    #[ORM\JoinColumn(name:"idMsDispo_id", referencedColumnName:"id")]
     private ?Missiondispo $idMsDispo = null;
 
     /**

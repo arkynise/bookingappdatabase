@@ -19,38 +19,38 @@ class Parametrecatalogue
     #[ORM\Column(nullable: true)]
     private ?int $img = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $nomCollab = null;
+    #[ORM\Column(name:'nomCollab', nullable: true)]
+    private ?bool $nomCollab = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $dateEntrée = null;
+    #[ORM\Column(name:'dateEntrée', nullable: true)]
+    private ?bool $dateEntrée = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $permis = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $permis = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $age = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $age = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $taille = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $taille = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $taillePantalon = null;
+    #[ORM\Column(name:'taillePantalon', nullable: true)]
+    private ?bool $taillePantalon = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $pointureVeste = null;
+    #[ORM\Column(name:'pointureVeste',nullable: true)]
+    private ?bool $pointureVeste = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $pointure = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $pointure = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $formation = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $formation = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $experience = null;
+    #[ORM\Column(nullable: true)]
+    private ?bool $experience = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $langue = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $langue = null;
 
     /**
      * @var Collection<int, Catalogue>
@@ -80,132 +80,132 @@ class Parametrecatalogue
         return $this;
     }
 
-    public function getNomCollab(): ?int
+    public function isNomCollab(): ?bool
     {
         return $this->nomCollab;
     }
 
-    public function setNomCollab(?int $nomCollab): static
+    public function setNomCollab(?bool $nomCollab): static
     {
         $this->nomCollab = $nomCollab;
 
         return $this;
     }
 
-    public function getDateEntrée(): ?int
+    public function isDateEntrée(): ?bool
     {
         return $this->dateEntrée;
     }
 
-    public function setDateEntrée(?int $dateEntrée): static
+    public function setDateEntrée(?bool $dateEntrée): static
     {
         $this->dateEntrée = $dateEntrée;
 
         return $this;
     }
 
-    public function getPermis(): ?int
+    public function isPermis(): ?bool
     {
         return $this->permis;
     }
 
-    public function setPermis(?int $permis): static
+    public function setPermis(?bool $permis): static
     {
         $this->permis = $permis;
 
         return $this;
     }
 
-    public function getAge(): ?int
+    public function isAge(): ?bool
     {
         return $this->age;
     }
 
-    public function setAge(?int $age): static
+    public function setAge(?bool $age): static
     {
         $this->age = $age;
 
         return $this;
     }
 
-    public function getTaille(): ?int
+    public function isTaille(): ?bool
     {
         return $this->taille;
     }
 
-    public function setTaille(?int $taille): static
+    public function setTaille(?bool $taille): static
     {
         $this->taille = $taille;
 
         return $this;
     }
 
-    public function getTaillePantalon(): ?int
+    public function isTaillePantalon(): ?bool
     {
         return $this->taillePantalon;
     }
 
-    public function setTaillePantalon(?int $taillePantalon): static
+    public function setTaillePantalon(?bool $taillePantalon): static
     {
         $this->taillePantalon = $taillePantalon;
 
         return $this;
     }
 
-    public function getPointureVeste(): ?int
+    public function isPointureVeste(): ?bool
     {
         return $this->pointureVeste;
     }
 
-    public function setPointureVeste(?int $pointureVeste): static
+    public function setPointureVeste(?bool $pointureVeste): static
     {
         $this->pointureVeste = $pointureVeste;
 
         return $this;
     }
 
-    public function getPointure(): ?int
+    public function isPointure(): ?bool
     {
         return $this->pointure;
     }
 
-    public function setPointure(?int $pointure): static
+    public function setPointure(?bool $pointure): static
     {
         $this->pointure = $pointure;
 
         return $this;
     }
 
-    public function getFormation(): ?int
+    public function isFormation(): ?bool
     {
         return $this->formation;
     }
 
-    public function setFormation(?int $formation): static
+    public function setFormation(?bool $formation): static
     {
         $this->formation = $formation;
 
         return $this;
     }
 
-    public function getExperience(): ?int
+    public function isExperience(): ?bool
     {
         return $this->experience;
     }
 
-    public function setExperience(?int $experience): static
+    public function setExperience(?bool $experience): static
     {
         $this->experience = $experience;
 
         return $this;
     }
 
-    public function getLangue(): ?int
+    public function isLangue(): ?bool
     {
         return $this->langue;
     }
 
-    public function setLangue(?int $langue): static
+    public function setLangue(?bool $langue): static
     {
         $this->langue = $langue;
 

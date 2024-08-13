@@ -17,6 +17,7 @@ class Messagepop
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'messagepops')]
+    #[ORM\JoinColumn(name:"groupe", referencedColumnName:"id")]
     private ?groupeuser $groupe = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -25,25 +26,25 @@ class Messagepop
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $text = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'datePublication',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $datePublication = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $actif = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'valableAu',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $valableAu = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'updateat',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updateat = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'forAll',nullable: true)]
     private ?bool $forAll = null;
 
     #[ORM\Column(nullable: true)]

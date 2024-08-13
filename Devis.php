@@ -64,7 +64,7 @@ class Devis
     private ?\DateTimeInterface $date_debut = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $daet_fin = null;
+    private ?\DateTimeInterface $date_fin = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $heure_debut = null;
@@ -76,13 +76,13 @@ class Devis
     private ?\DateTimeInterface $date_devis = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $status = null;
+    private ?string $statut = null;
 
     #[ORM\Column(length: 255)]
     private ?string $repas = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
-    private ?string $accompte = null;
+    private ?string $acompte = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $booster = null;
@@ -105,10 +105,10 @@ class Devis
     #[ORM\Column(name:'TotalBrut',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $TotalBrut = null;
 
-    #[ORM\Column(name:'RemisA',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'RemiseA',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $RemisA = null;
 
-    #[ORM\Column(name:'RemisP',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'RemiseP',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $RemisP = null;
 
     #[ORM\Column(name:'MasseSalarial',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
@@ -120,13 +120,13 @@ class Devis
     #[ORM\Column(name:'TvaA',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $TvaA = null;
 
-    #[ORM\Column(name:'TvaTotal',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'TvaATotal',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $TvaTotal = null;
 
     #[ORM\Column(name:'ReglementFacture',nullable: true)]
     private ?int $ReglementFacture = null;
 
-    #[ORM\Column(name:'TotalGeneralTTc',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'TotalGeneralTTC',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $TotalGeneralTTc = null;
 
     #[ORM\Column(name:'AcompteHT',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
@@ -159,16 +159,16 @@ class Devis
     #[ORM\Column(name:'UserAppart',length: 255, nullable: true)]
     private ?string $UserAppart = null;
 
-    #[ORM\Column(name:'infUniforme',type: Types::TEXT, nullable: true)]
-    private ?string $infUniforme = null;
+    #[ORM\Column(name:'InfUniforme',type: Types::TEXT, nullable: true)]
+    private ?string $InfUniforme = null;
 
-    #[ORM\Column(name:'ClientChois',length: 255, nullable: true)]
+    #[ORM\Column(name:'ClientChoisi',length: 255, nullable: true)]
     private ?string $ClientChois = null;
 
-    #[ORM\Column(name:'Adress',type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'Adresse',type: Types::TEXT, nullable: true)]
     private ?string $Adress = null;
 
-    #[ORM\Column(name:'Adress2',type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'Adresse2',type: Types::TEXT, nullable: true)]
     private ?string $Adress2 = null;
 
     #[ORM\Column(name:'Contact',length: 255, nullable: true)]
@@ -186,7 +186,7 @@ class Devis
     #[ORM\Column(name:'RecherchClient',nullable: true)]
     private ?int $RecherchClient = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'obsLieu',length: 255, nullable: true)]
     private ?string $obsLieu = null;
 
     #[ORM\Column(name:'IdUserWrite',nullable: true)]
@@ -231,6 +231,9 @@ class Devis
 
     #[ORM\Column(name:'IdAdresse1',nullable: true)]
     private ?int $IdAdresse1 = null;
+
+    #[ORM\Column(name:'IdEvent',nullable: true)]
+    private ?int $IdEvent = null;
 
     public function __construct()
     {
@@ -428,12 +431,12 @@ class Devis
 
     public function getDaetFin(): ?\DateTimeInterface
     {
-        return $this->daet_fin;
+        return $this->date_fin;
     }
 
-    public function setDaetFin(?\DateTimeInterface $daet_fin): static
+    public function setDaetFin(?\DateTimeInterface $date_fin): static
     {
-        $this->daet_fin = $daet_fin;
+        $this->date_fin = $date_fin;
 
         return $this;
     }
@@ -474,14 +477,14 @@ class Devis
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatut(): ?string
     {
-        return $this->status;
+        return $this->statut;
     }
 
-    public function setStatus(?string $status): static
+    public function setStatut(?string $statut): static
     {
-        $this->status = $status;
+        $this->statut = $statut;
 
         return $this;
     }
@@ -498,14 +501,14 @@ class Devis
         return $this;
     }
 
-    public function getAccompte(): ?string
+    public function getAcompte(): ?string
     {
-        return $this->accompte;
+        return $this->acompte;
     }
 
-    public function setAccompte(?string $accompte): static
+    public function setAcompte(?string $acompte): static
     {
-        $this->accompte = $accompte;
+        $this->acompte = $acompte;
 
         return $this;
     }
@@ -812,12 +815,12 @@ class Devis
 
     public function getInfUniforme(): ?string
     {
-        return $this->infUniforme;
+        return $this->InfUniforme;
     }
 
-    public function setInfUniforme(?string $infUniforme): static
+    public function setInfUniforme(?string $InfUniforme): static
     {
-        $this->infUniforme = $infUniforme;
+        $this->InfUniforme = $InfUniforme;
 
         return $this;
     }
@@ -906,17 +909,6 @@ class Devis
         return $this;
     }
 
-    public function getRecherchClient(): ?int
-    {
-        return $this->RecherchClient;
-    }
-
-    public function setRecherchClient(?int $RecherchClient): static
-    {
-        $this->RecherchClient = $RecherchClient;
-
-        return $this;
-    }
 
     public function getObsLieu(): ?string
     {
@@ -1112,6 +1104,18 @@ class Devis
     public function setIdAdresse1(?int $IdAdresse1): static
     {
         $this->IdAdresse1 = $IdAdresse1;
+
+        return $this;
+    }
+
+    public function getIdEvent(): ?int
+    {
+        return $this->IdEvent;
+    }
+
+    public function setIdEvent(?int $IdEvent): static
+    {
+        $this->IdEvent = $IdEvent;
 
         return $this;
     }

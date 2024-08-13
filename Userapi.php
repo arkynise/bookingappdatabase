@@ -34,16 +34,16 @@ class Userapi
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $status = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $oneConnect = null;
+    #[ORM\Column(name:'oneConnect', nullable: true)]
+    private ?bool $oneConnect = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'lastConnect',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $lastConnect = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'lastAction',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $lastAction = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'lastDisconnect',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $lastDisconnect = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -52,13 +52,13 @@ class Userapi
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $platform = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'osVersion',length: 255, nullable: true)]
     private ?string $osVersion = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'webViewVersion',length: 255, nullable: true)]
     private ?string $webViewVersion = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'appVersion',length: 255, nullable: true)]
     private ?string $appVersion = null;
 
     /**
@@ -149,12 +149,12 @@ class Userapi
         return $this;
     }
 
-    public function getOneConnect(): ?int
+    public function isOneConnect(): ?bool
     {
         return $this->oneConnect;
     }
 
-    public function setOneConnect(?int $oneConnect): static
+    public function setOneConnect(?bool $oneConnect): static
     {
         $this->oneConnect = $oneConnect;
 

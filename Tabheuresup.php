@@ -14,19 +14,19 @@ class Tabheuresup
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Profile',length: 255, nullable: true)]
     private ?string $Profile = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'HSupJP',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $HSupJP = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'HSupJF',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $HSupJF = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'HSupNP',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $HSupNP = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'HSupNF',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $HSupNF = null;
 
     public function getId(): ?int

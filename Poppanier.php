@@ -14,9 +14,11 @@ class Poppanier
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'poppaniers')]
+    #[ORM\JoinColumn(name:"idMsgPop_id", referencedColumnName:"id")]
     private ?messagepop $idMsgPop = null;
 
     #[ORM\ManyToOne(inversedBy: 'poppaniers')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     public function getId(): ?int

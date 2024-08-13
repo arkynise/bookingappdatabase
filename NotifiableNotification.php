@@ -19,7 +19,7 @@ class NotifiableNotification
     #[ORM\Column]
     private ?bool $seen = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'notifiableEntity_id',nullable: true)]
     private ?int $notifiableEntity_id = null;
 
     public function getId(): ?int

@@ -9,10 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: DocreferenceRepository::class)]
 class Docreference
 {
+
+
+
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(length:100)]
+    private ?string $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $path = null;

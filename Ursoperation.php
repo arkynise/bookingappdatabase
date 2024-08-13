@@ -16,97 +16,98 @@ class Ursoperation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateCreation = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NumeroDevis',length: 255, nullable: true)]
     private ?string $NumeroDevis = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Commercial',length: 255, nullable: true)]
     private ?string $Commercial = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateDebut',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateDebut = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateFin',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateFin = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Client',length: 255, nullable: true)]
     private ?string $Client = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Lieu',length: 255, nullable: true)]
     private ?string $Lieu = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'DpaeCree',nullable: true)]
     private ?bool $DpaeCree = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DpaeDate',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DpaeDate = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateInsertion',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateInsertion = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Nom',length: 255, nullable: true)]
     private ?string $Nom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Prenom',length: 255, nullable: true)]
     private ?string $Prenom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'IdSalarie',length: 255, nullable: true)]
     private ?string $IdSalarie = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateNaissance',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateNaissance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NumSS',length: 255, nullable: true)]
     private ?string $NumSS = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CleSS',length: 255, nullable: true)]
     private ?string $CleSS = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CommuneNaissance',length: 255, nullable: true)]
     private ?string $CommuneNaissance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DepartementNaissance',length: 255, nullable: true)]
     private ?string $DepartementNaissance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DpaeCode',length: 255, nullable: true)]
     private ?string $DpaeCode = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DpaeErreurCode',length: 255, nullable: true)]
     private ?string $DpaeErreurCode = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DpaeErreurMessage',length: 255, nullable: true)]
     private ?string $DpaeErreurMessage = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NomFichier',length: 255, nullable: true)]
     private ?string $NomFichier = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NumLot',length: 255, nullable: true)]
     private ?string $NumLot = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'ReceptionTraitee',nullable: true)]
     private ?bool $ReceptionTraitee = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateEnvoi',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateEnvoi = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateReception',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateReception = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'DpaeNbErreurs',nullable: true)]
     private ?int $DpaeNbErreurs = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateInsertionDpae',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateInsertionDpae = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'IdFlux',length: 255, nullable: true)]
     private ?string $IdFlux = null;
 
     #[ORM\ManyToOne(inversedBy: 'ursoperations')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'Genre',nullable: true)]
     private ?int $Genre = null;
 
     /**

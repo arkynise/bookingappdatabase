@@ -17,7 +17,7 @@ class Contactclient
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'descriptionC',length: 255, nullable: true)]
     private ?string $descriptionC = null;
 
     #[ORM\Column(length: 255)]

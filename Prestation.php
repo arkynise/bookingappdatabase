@@ -19,13 +19,13 @@ class Prestation
     #[ORM\Column(length: 255)]
     private ?string $mission = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idDevis',nullable: true)]
     private ?int $idDevis = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $uniforme = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DebForfait',length: 255, nullable: true)]
     private ?string $DebForfait = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -43,76 +43,79 @@ class Prestation
     #[ORM\Column(length: 255)]
     private ?string $profile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdProfile',nullable: true)]
     private ?int $IdProfile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'NbRepas',nullable: true)]
     private ?int $NbRepas = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'Xtra',nullable: true)]
     private ?int $Xtra = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'TotalRepas',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $TotalRepas = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'heureTravaille',length: 255, nullable: true)]
     private ?string $heureTravaille = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'heureD',length: 255)]
     private ?string $heureD = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'heureF',length: 255)]
     private ?string $heureF = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'totalPSansB',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $totalPSansB = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'totalP',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $totalP = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'totalBrut',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $totalBrut = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'intBrut',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $intBrut = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'tarifPrestation',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $tarifPrestation = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'tarifPrestationSansB',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $tarifPrestationSansB = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $grilles = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'grilleClient',length: 255, nullable: true)]
     private ?string $grilleClient = null;
 
     #[ORM\ManyToOne(inversedBy: 'prestations')]
+    #[ORM\JoinColumn(name:"profilePrestation", referencedColumnName:"id")]
     private ?profile $profilePrestation = null;
 
     #[ORM\ManyToOne(inversedBy: 'prestations')]
+    #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
     private ?event $idEvent = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdMission',nullable: true)]
     private ?int $IdMission = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idPrestDevis',nullable: true)]
     private ?int $idPrestDevis = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IsNew',nullable: true)]
     private ?bool $IsNew = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'intD',nullable: true)]
     private ?int $intD = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'intF',nullable: true)]
     private ?int $intF = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'grilleSurnom',length: 255)]
     private ?string $grilleSurnom = null;
 
     #[ORM\ManyToOne(inversedBy: 'prestations')]
+    #[ORM\JoinColumn(name:"missionPrestation", referencedColumnName:"id")]
     private ?mission $missionPrestation = null;
 
     /**

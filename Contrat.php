@@ -29,11 +29,11 @@ class Contrat
     private ?string $path = null;
 
     #[ORM\ManyToOne(inversedBy: 'contrats')]
-    #[ORM\JoinColumn(name:"idSal", referencedColumnName:"id")]
+    #[ORM\JoinColumn(name:"idSal_id", referencedColumnName:"id")]
     private ?Salarie $idSal = null;
 
     #[ORM\ManyToOne(inversedBy: 'contrats')]
-    #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
+    #[ORM\JoinColumn(name:"idEvent_id", referencedColumnName:"id")]
     private ?Event $idEvent = null;
 
     #[ORM\Column(nullable: true)]

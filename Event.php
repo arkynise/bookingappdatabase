@@ -112,7 +112,7 @@ class Event
     #[ORM\Column(name:'GroupeOrigine',nullable: true)]
     private ?int $GroupeOrigine = null;
 
-    #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\OneToOne(inversedBy: 'events')]
     #[ORM\JoinColumn(name:"Brefing_id", referencedColumnName:"id")]
     private ?Fichierbooking $Brefing = null;
 
@@ -125,7 +125,7 @@ class Event
     #[ORM\ManyToOne(inversedBy: 'events')]
     private ?Groupeuser $groupe = null;
 
-    #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\OneToOne(inversedBy: 'events')]
     #[ORM\JoinColumn(name:"idFroute_id", referencedColumnName:"id")]
     private ?Froute $idFroute = null;
 
@@ -138,8 +138,8 @@ class Event
     /**
      * @var Collection<int, Observent>
      */
-    #[ORM\OneToMany(targetEntity: Observent::class, mappedBy: 'IdEvent')]
-    private Collection $observents;
+    #[ORM\OneToMany(targetEntity: Obsevent::class, mappedBy: 'IdEvent')]
+    private Collection $obsevents;
 
     /**
      * @var Collection<int, Eventnote>
@@ -241,7 +241,7 @@ class Event
     {
         $this->messages = new ArrayCollection();
         $this->eventusers = new ArrayCollection();
-        $this->observents = new ArrayCollection();
+        $this->obsevents = new ArrayCollection();
         $this->eventnotes = new ArrayCollection();
         $this->contrats = new ArrayCollection();
         $this->idSalarie = new ArrayCollection();
@@ -740,25 +740,25 @@ class Event
      */
     public function getObservents(): Collection
     {
-        return $this->observents;
+        return $this->obsevents;
     }
 
-    public function addObservent(Observent $observent): static
+    public function addObservent(Obsevent $obsevent): static
     {
-        if (!$this->observents->contains($observent)) {
-            $this->observents->add($observent);
-            $observent->setIdEvent($this);
+        if (!$this->obsevents->contains($obsevent)) {
+            $this->obsevents->add($obsevent);
+            $obsevent->setIdEvent($this);
         }
 
         return $this;
     }
 
-    public function removeObservent(Observent $observent): static
+    public function removeObservent(Obsevent $obsevent): static
     {
-        if ($this->observents->removeElement($observent)) {
+        if ($this->obsevents->removeElement($obsevent)) {
             // set the owning side to null (unless already changed)
-            if ($observent->getIdEvent() === $this) {
-                $observent->setIdEvent(null);
+            if ($obsevent->getIdEvent() === $this) {
+                $obsevent->setIdEvent(null);
             }
         }
 

@@ -17,18 +17,19 @@ class Pubevent
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'pubevents')]
+    #[ORM\JoinColumn(name:"groupe", referencedColumnName:"id")]
     private ?Groupeuser $groupe = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoDate',length: 255, nullable: true)]
     private ?string $infoDate = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -40,28 +41,28 @@ class Pubevent
     #[ORM\Column(nullable: true)]
     private ?bool $femme = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoAppelle',length: 255, nullable: true)]
     private ?string $infoAppelle = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'debutPub',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $debutPub = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'finPub',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $finPub = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'descriptionPub',type: Types::TEXT, nullable: true)]
     private ?string $descriptionPub = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'demiTrav',nullable: true)]
     private ?bool $demiTrav = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'jourTrav',nullable: true)]
     private ?bool $jourTrav = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'soirtrav',nullable: true)]
     private ?bool $soirtrav = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'publier',nullable: true)]
     private ?bool $publier = null;
 
     #[ORM\Column(nullable: true)]
@@ -74,6 +75,7 @@ class Pubevent
     private Collection $imagepubevents;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name:"imgPubEvent_id", referencedColumnName:"id")]
     private ?Imagepubevent $imgPubEvent = null;
 
     /**

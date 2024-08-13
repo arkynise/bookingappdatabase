@@ -209,7 +209,7 @@ class Brouillard
     #[ORM\Column(name:'RemiseA',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $RemiseA = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'RemiseP',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $RemiseP = null;
 
     #[ORM\Column(name:'ObsRemise',length: 255, nullable: true)]

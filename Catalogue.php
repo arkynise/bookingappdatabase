@@ -56,15 +56,14 @@ class Catalogue
     #[ORM\Column(nullable: true)]
     private ?int $statut = null;
 
-    #[ORM\ManyToOne(inversedBy: 'catalogues')]
+    #[ORM\OneToOne]
     #[ORM\JoinColumn(name:'imgCat_id', referencedColumnName:"id")]
-
     private ?Imagecata $imgCat = null;
 
     #[ORM\Column(name:'tokenUrl',length: 255, nullable: true)]
     private ?string $tokenUrl = null;
 
-    #[ORM\ManyToOne(inversedBy: 'catalogues')]
+    #[ORM\OneToOne]
     #[ORM\JoinColumn(name:"idParam_id", referencedColumnName:"id")]
     private ?Parametrecatalogue $idParam = null;
 

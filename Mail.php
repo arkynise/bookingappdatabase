@@ -14,28 +14,28 @@ class Mail
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Objet',length: 255, nullable: true)]
     private ?string $Objet = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'Message',type: Types::TEXT, nullable: true)]
     private ?string $Message = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'MailDe',length: 255, nullable: true)]
     private ?string $MailDe = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'MailA',length: 255, nullable: true)]
     private ?string $MailA = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'MailCc',length: 255, nullable: true)]
     private ?string $MailCc = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateEnvoyer',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateEnvoyer = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'IdUser',nullable: true)]
     private ?int $IdUser = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdDevis',nullable: true)]
     private ?int $IdDevis = null;
 
     public function getId(): ?int

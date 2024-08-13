@@ -8,14 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: UserGroupeuserRepository::class)]
 class UserGroupeuser
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
+    #[ORM\Id]
     #[ORM\ManyToOne(inversedBy: 'userGroupeusers')]
     private ?User $user = null;
 
+    #[ORM\Id]
     #[ORM\ManyToOne(inversedBy: 'userGroupeusers')]
     private ?Groupeuser $groupeuser = null;
 

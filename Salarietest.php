@@ -15,7 +15,7 @@ class Salarietest
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Nom',length: 255, nullable: true)]
     private ?string $Nom = null;
 
     /**
@@ -58,7 +58,7 @@ class Salarietest
     {
         if (!$this->images->contains($image)) {
             $this->images->add($image);
-            $image->setUserId($this);
+            $image->setUser($this);
         }
 
         return $this;
@@ -68,8 +68,8 @@ class Salarietest
     {
         if ($this->images->removeElement($image)) {
             // set the owning side to null (unless already changed)
-            if ($image->getUserId() === $this) {
-                $image->setUserId(null);
+            if ($image->getUser() === $this) {
+                $image->setUser(null);
             }
         }
 

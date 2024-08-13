@@ -14,16 +14,18 @@ class Retourpubevent
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateReponse',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateReponse = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'repSal',nullable: true)]
     private ?bool $repSal = null;
 
     #[ORM\ManyToOne(inversedBy: 'retourpubevents')]
+    #[ORM\JoinColumn(name:"idPubEvent_id", referencedColumnName:"id")]
     private ?pubevent $idPubEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'retourpubevents')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     public function getId(): ?int

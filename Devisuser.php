@@ -14,9 +14,11 @@ class Devisuser
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'devisusers')]
+    #[ORM\JoinColumn(name:"User_id", referencedColumnName:"id")]
     private ?User $User = null;
 
     #[ORM\ManyToOne(inversedBy: 'devisusers')]
+    #[ORM\JoinColumn(name:"Devis_id", referencedColumnName:"id")]
     private ?Devis $Devis = null;
 
     public function getId(): ?int

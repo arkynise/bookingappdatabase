@@ -17,18 +17,19 @@ class Pubentreprise
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'pubentreprises')]
+    #[ORM\JoinColumn(name:"groupe", referencedColumnName:"id")]
     private ?groupeuser $groupe = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoDate',length: 255, nullable: true)]
     private ?string $infoDate = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -40,19 +41,19 @@ class Pubentreprise
     #[ORM\Column(nullable: true)]
     private ?bool $femme = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoAppelle',length: 255, nullable: true)]
     private ?string $infoAppelle = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'debutPub',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $debutPub = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'finPub',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $finPub = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'descriptionPub',type: Types::TEXT, nullable: true)]
     private ?string $descriptionPub = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'qualification',type: Types::TEXT, nullable: true)]
     private ?string $qualification = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -61,19 +62,19 @@ class Pubentreprise
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $mission = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'heureFin',type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $heureFin = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'heureDbt',type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $heureDbt = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoHeure',length: 255, nullable: true)]
     private ?string $infoHeure = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $prix = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoPrix',length: 255, nullable: true)]
     private ?string $infoPrix = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -101,6 +102,7 @@ class Pubentreprise
     private Collection $imagepubentreprises;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name:"imgPubEntreprise", referencedColumnName:"id")]
     private ?imagepubentreprise $imgPubEntreprise = null;
 
     /**

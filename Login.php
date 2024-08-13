@@ -14,6 +14,7 @@ class Login
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'logins')]
+    #[ORM\JoinColumn(name:"imageLogin", referencedColumnName:"id")]
     private ?Media $imageLogin = null;
 
     public function getId(): ?int

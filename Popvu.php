@@ -12,10 +12,10 @@ class Popvu
 
 
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateVu',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateVu = null;
 
     #[ORM\Id]

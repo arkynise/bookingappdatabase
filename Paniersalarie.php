@@ -14,16 +14,18 @@ class Paniersalarie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'paniersalaries')]
+    #[ORM\JoinColumn(name:"idPanier", referencedColumnName:"id")]
     private ?panier $idPanier = null;
 
     #[ORM\ManyToOne(inversedBy: 'paniersalaries')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Etat',length: 255, nullable: true)]
     private ?string $Etat = null;
 
     #[ORM\Column(nullable: true)]

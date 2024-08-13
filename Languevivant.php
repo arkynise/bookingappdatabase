@@ -15,28 +15,28 @@ class Languevivant
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'lvUn',length: 255, nullable: true)]
     private ?string $lvUn = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NivUn',length: 255, nullable: true)]
     private ?string $NivUn = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'IvDeux',length: 255, nullable: true)]
     private ?string $IvDeux = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NivDeux',length: 255, nullable: true)]
     private ?string $NivDeux = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'IvTrois',length: 255, nullable: true)]
     private ?string $IvTrois = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NivTrois',length: 255, nullable: true)]
     private ?string $NivTrois = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'IvQuatre',length: 255, nullable: true)]
     private ?string $IvQuatre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NivQuatre',length: 255, nullable: true)]
     private ?string $NivQuatre = null;
 
     /**

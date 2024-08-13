@@ -17,9 +17,11 @@ class Panierurgenceentreprise
     private ?bool $notifications = null;
 
     #[ORM\ManyToOne(inversedBy: 'panierurgenceentreprises')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     #[ORM\ManyToOne(inversedBy: 'panierurgenceentreprises')]
+    #[ORM\JoinColumn(name:"idUrgence_id", referencedColumnName:"id")]
     private ?urgenceentreprise $idUrgence = null;
 
     public function getId(): ?int

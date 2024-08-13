@@ -22,10 +22,10 @@ class Pays
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $alpha3 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'nomAnglais',length: 255, nullable: true)]
     private ?string $nomAnglais = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'nomFrancais',length: 255, nullable: true)]
     private ?string $nomFrancais = null;
 
     public function getId(): ?int

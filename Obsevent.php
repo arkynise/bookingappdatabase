@@ -2,36 +2,39 @@
 
 namespace App\Entity;
 
-use App\Repository\ObserventRepository;
+use App\Repository\ObseventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ObserventRepository::class)]
-class Observent
+#[ORM\Entity(repositoryClass: ObseventRepository::class)]
+
+class Obsevent
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Libelle',length: 255, nullable: true)]
     private ?string $Libelle = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'observents')]
+    #[ORM\JoinColumn(name:"Ecritpar_id", referencedColumnName:"id")]
     private ?User $ecritpar = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $notifications = null;
+    #[ORM\Column( nullable: true)]
+    private ?bool $notifications = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $obsCibler = null;
+    #[ORM\Column(name:'obsCibler', nullable: true)]
+    private ?bool $obsCibler = null;
 
     #[ORM\ManyToOne(inversedBy: 'observents')]
+    #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
     /**
@@ -86,24 +89,24 @@ class Observent
         return $this;
     }
 
-    public function getNotifications(): ?int
+    public function isNotifications(): ?bool
     {
         return $this->notifications;
     }
 
-    public function setNotifications(?int $notifications): static
+    public function setNotifications(?bool $notifications): static
     {
         $this->notifications = $notifications;
 
         return $this;
     }
 
-    public function getObsCibler(): ?int
+    public function isObsCibler(): ?bool
     {
         return $this->obsCibler;
     }
 
-    public function setObsCibler(?int $obsCibler): static
+    public function setObsCibler(?bool $obsCibler): static
     {
         $this->obsCibler = $obsCibler;
 

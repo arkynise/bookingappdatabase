@@ -14,28 +14,29 @@ class Infoapi
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'numVersion',length: 255, nullable: true)]
     private ?string $numVersion = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'msgMineur',length: 255, nullable: true)]
     private ?string $msgMineur = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'msgMajeur',length: 255, nullable: true)]
     private ?string $msgMajeur = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $enable = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name:"imgAccueil_id", referencedColumnName:"id")]
     private ?media $imgAccueil = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'reloadAppChanged',nullable: true)]
     private ?bool $reloadAppChanged = null;
 
     public function getId(): ?int

@@ -13,10 +13,11 @@ class Salexperienceold
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoExp',length: 255, nullable: true)]
     private ?string $infoExp = null;
 
     #[ORM\ManyToOne(inversedBy: 'salexperienceolds')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     public function getId(): ?int

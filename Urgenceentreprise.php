@@ -16,16 +16,16 @@ class Urgenceentreprise
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoDate',length: 255, nullable: true)]
     private ?string $infoDate = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -37,28 +37,28 @@ class Urgenceentreprise
     #[ORM\Column(nullable: true)]
     private ?bool $femme = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateDbt',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateDbt = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateFin',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateFin = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $mission = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'heureFin',type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $heureFin = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'heureDbt',type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $heureDbt = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoHeure',length: 255, nullable: true)]
     private ?string $infoHeure = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $prix = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoPrix',length: 255, nullable: true)]
     private ?string $infoPrix = null;
 
     #[ORM\Column(nullable: true)]

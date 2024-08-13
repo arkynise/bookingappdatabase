@@ -14,13 +14,15 @@ class Talonsalarie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'talonsalaries')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     #[ORM\ManyToOne(inversedBy: 'talonsalaries')]
+    #[ORM\JoinColumn(name:"idTalon", referencedColumnName:"id")]
     private ?talon $idTalon = null;
 
     public function getId(): ?int

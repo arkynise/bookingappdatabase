@@ -17,6 +17,7 @@ class Tokenmobile
     private ?string $token = null;
 
     #[ORM\ManyToOne(inversedBy: 'tokenmobiles')]
+    #[ORM\JoinColumn(name:"idSalarie", referencedColumnName:"id")]
     private ?salarie $idSalarie = null;
 
     public function getId(): ?int

@@ -14,37 +14,37 @@ class ScheduledCommand
     #[ORM\Column(name:'ID_SCHEDULED_COMMAND')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'NAME',length: 255)]
     private ?string $NAME = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'COMMAND',length: 255)]
     private ?string $COMMAND = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'ARGUMENTS',length: 255)]
     private ?string $ARGUMENTS = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CRON_EXPRESSION',length: 255, nullable: true)]
     private ?string $CRON_EXPRESSION = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(name:'DH_LAST_EXECUTION',type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $DH_LAST_EXECUTION = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'LAST_RETURN_CODE',nullable: true)]
     private ?int $LAST_RETURN_CODE = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'LOG_FILE',length: 255, nullable: true)]
     private ?string $LOG_FILE = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'PRIORITY')]
     private ?int $PRIORITY = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'B_EXECUTE_IMMEDIATELY')]
     private ?bool $B_EXECUTE_IMMEDIATELY = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'B_DISABLED')]
     private ?bool $B_DISABLED = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name:'B_LOCKED')]
     private ?bool $B_LOCKED = null;
 
     public function getId(): ?int

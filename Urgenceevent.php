@@ -19,10 +19,10 @@ class Urgenceevent
     #[ORM\ManyToOne(inversedBy: 'urgenceevents')]
     private ?groupeuser $groupe = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'idUserWrite',nullable: true)]
     private ?int $idUserWrite = null;
 
     #[ORM\Column(nullable: true)]
@@ -38,21 +38,24 @@ class Urgenceevent
     private ?bool $notifications = null;
 
     #[ORM\ManyToOne(inversedBy: 'urgenceevents')]
+    #[ORM\JoinColumn(name:"idEvent_id", referencedColumnName:"id")]
     private ?event $idEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'urgenceevents')]
+    #[ORM\JoinColumn(name:"idPrest_id", referencedColumnName:"id")]
     private ?prestation $idPrest = null;
 
     #[ORM\ManyToOne(inversedBy: 'urgenceevents')]
+    #[ORM\JoinColumn(name:"idPanier_id", referencedColumnName:"id")]
     private ?panier $idPanier = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(name:'dateRetrait',type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateRetrait = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $prix = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'dltAffect',nullable: true)]
     private ?bool $dltAffect = null;
 
     /**

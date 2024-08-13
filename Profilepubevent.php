@@ -14,9 +14,11 @@ class Profilepubevent
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'profilepubevents')]
+    #[ORM\JoinColumn(name:"idPubEvent_id", referencedColumnName:"id")]
     private ?pubevent $idPubEvent = null;
 
     #[ORM\ManyToOne(inversedBy: 'profilepubevents')]
+    #[ORM\JoinColumn(name:"idProfile_id", referencedColumnName:"id")]
     private ?profile $idProfile = null;
 
     public function getId(): ?int

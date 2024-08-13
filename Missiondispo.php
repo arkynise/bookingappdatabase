@@ -17,33 +17,35 @@ class Missiondispo
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'missiondispos')]
+    #[ORM\JoinColumn(name:"groupe", referencedColumnName:"id")]
     private ?Groupeuser $groupe = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdUserWrite',nullable: true)]
     private ?int $IdUserWrite = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoDate',length: 255, nullable: true)]
     private ?string $infoDate = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'infoEvent',length: 255, nullable: true)]
     private ?string $infoEvent = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'debutPub',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $debutPub = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'finPub',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $finPub = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'fontBlanc',nullable: true)]
     private ?bool $fontBlanc = null;
 
     #[ORM\ManyToOne(inversedBy: 'missiondispos')]
+    #[ORM\JoinColumn(name:"imgDsp", referencedColumnName:"id")]
     private ?Imagemsdispo $imgDsp = null;
 
     #[ORM\Column(nullable: true)]
@@ -52,10 +54,10 @@ class Missiondispo
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $statut = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'titrePop',length: 255, nullable: true)]
     private ?string $titrePop = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'msgPop',length: 255, nullable: true)]
     private ?string $msgPop = null;
 
     /**

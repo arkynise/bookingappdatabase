@@ -16,337 +16,360 @@ class Salarie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Matricule',length: 255, nullable: true)]
     private ?string $Matricule = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"Civilite", referencedColumnName:"id")]
     private ?Civilite $Civilite = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Nom',length: 255, nullable: true)]
     private ?string $Nom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NomeJf',length: 255, nullable: true)]
     private ?string $NomeJf = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Prenom',length: 255, nullable: true)]
     private ?string $Prenom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Etablissement',length: 255, nullable: true)]
     private ?string $Etablissement = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Adress1',length: 255, nullable: true)]
     private ?string $Adress1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Complement1',length: 255, nullable: true)]
     private ?string $Complement1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CodePosatl1',length: 255, nullable: true)]
     private ?string $CodePosatl1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'BureauDist1',length: 255, nullable: true)]
     private ?string $BureauDist1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Tel1',length: 255, nullable: true)]
     private ?string $Tel1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TelPort1',length: 255, nullable: true)]
     private ?string $TelPort1 = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'ChoixAdrBulletin',nullable: true)]
     private ?int $ChoixAdrBulletin = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdNationalite", referencedColumnName:"id")]
     private ?Nationalite $IdNationalite = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NCarteSejour',length: 255, nullable: true)]
     private ?string $NCarteSejour = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateExpirationSejour',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateExpirationSejour = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateNaissance',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateNaissance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'DeptNaissance',length: 255, nullable: true)]
     private ?string $DeptNaissance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Commune',length: 255, nullable: true)]
     private ?string $Commune = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NSec',length: 255, nullable: true)]
     private ?string $NSec = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CleSec',length: 255, nullable: true)]
     private ?string $CleSec = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdSituFamilliale", referencedColumnName:"id")]
     private ?Situationfamiliale $IdSituFamilliale = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'NbEnfant',nullable: true)]
     private ?int $NbEnfant = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdBulletinModele", referencedColumnName:"id")]
     private ?Bulletinmodele $IdBulletinModele = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'HeuresRemuneres',length: 255, nullable: true)]
     private ?string $HeuresRemuneres = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdDasCipz", referencedColumnName:"id")]
     private ?Dascipz $IdDasCipz = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdDasCodeInsee", referencedColumnName:"id")]
     private ?Dascodeinsee $IdDasCodeInsee = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdDasCategorie", referencedColumnName:"id")]
     private ?Dascategorie $IdDasCategorie = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'Taille',nullable: true)]
     private ?int $Taille = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdCouleurCheveux", referencedColumnName:"id")]
     private ?Coulcheveux $IdCouleurCheveux = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdCouleurYeux", referencedColumnName:"id")]
     private ?Coulyeux $IdCouleurYeux = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Pointure',length: 255, nullable: true)]
     private ?string $Pointure = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'TailleUniforme',nullable: true)]
     private ?int $TailleUniforme = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Voiture = null;
+    #[ORM\Column(name:'Voiture',nullable: true)]
+    private ?bool $Voiture = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Divers',length: 255, nullable: true)]
     private ?string $Divers = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdSociete',nullable: true)]
     private ?int $IdSociete = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Exclu = null;
+    #[ORM\Column(name:'Exclu', nullable: true)]
+    private ?bool $Exclu = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdTreizeMois", referencedColumnName:"id")]
     private ?Treizemois $IdTreizeMois = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateDebEmploi',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateDebEmploi = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateFinEmploi',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateFinEmploi = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdCodeNatContrat", referencedColumnName:"id")]
     private ?Naturecontart $IdCodeNatContrat = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'FinPeriodeEssai',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $FinPeriodeEssai = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'SalaireBrutTotal',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $SalaireBrutTotal = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    #[ORM\Column(name:'HoraireMensuel',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $HoraireMensuel = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdQualification", referencedColumnName:"id")]
     private ?Qualification $IdQualification = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'IdLieuTravail',nullable: true)]
     private ?int $IdLieuTravail = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Niveau',length: 255, nullable: true)]
     private ?string $Niveau = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'Coef',nullable: true)]
     private ?int $Coef = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'PaysNaissance',length: 255, nullable: true)]
     private ?string $PaysNaissance = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'DasProfession',nullable: true)]
     private ?int $DasProfession = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Selected = null;
+    #[ORM\Column(name:'Selected',nullable: true)]
+    private ?bool $Selected = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'PaysAdr1',length: 255, nullable: true)]
     private ?string $PaysAdr1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Email',length: 255, nullable: true)]
     private ?string $Email = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TailleVeste',length: 255, nullable: true)]
     private ?string $TailleVeste = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TailleChemise',length: 255, nullable: true)]
     private ?string $TailleChemise = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TaillePantalon',length: 255, nullable: true)]
     private ?string $TaillePantalon = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Permis = null;
+    #[ORM\Column(name:'Permis', nullable: true)]
+    private ?bool $Permis = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DatePermis',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DatePermis = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Moto = null;
+    #[ORM\Column(name:'Moto', nullable: true)]
+    private ?bool $Moto = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Bac = null;
+    #[ORM\Column(name:'Bac', nullable: true)]
+    private ?bool $Bac = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Diplome',length: 255, nullable: true)]
     private ?string $Diplome = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'OutilsInfo',length: 255, nullable: true)]
     private ?string $OutilsInfo = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'Nationalite',length: 255, nullable: true)]
     private ?string $Nationalite = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NationaliteAutre',length: 255, nullable: true)]
     private ?string $NationaliteAutre = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'RefProf',type: Types::TEXT, nullable: true)]
     private ?string $RefProf = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'ObjPro',length: 255, nullable: true)]
     private ?string $ObjPro = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'CmtObjPro',type: Types::TEXT, nullable: true)]
     private ?string $CmtObjPro = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NomAgences',length: 255, nullable: true)]
     private ?string $NomAgences = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'CmtConnus',length: 255, nullable: true)]
     private ?string $CmtConnus = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'AdrFb',length: 255, nullable: true)]
     private ?string $AdrFb = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NomJoindre',length: 255, nullable: true)]
     private ?string $NomJoindre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'PrenomJoindre',length: 255, nullable: true)]
     private ?string $PrenomJoindre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'QualiteJoindre',length: 255, nullable: true)]
     private ?string $QualiteJoindre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TelJoindre',length: 255, nullable: true)]
     private ?string $TelJoindre = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(name:'InfoDispoplus',type: Types::TEXT, nullable: true)]
     private ?string $InfoDispoplus = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Event = null;
+    #[ORM\Column(name:'Event',nullable: true)]
+    private ?bool $Event = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $EntTmpPtMatin = null;
+    #[ORM\Column(name:'EntTmpPtMatin', nullable: true)]
+    private ?bool $EntTmpPtMatin = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $EntTmpPtMidi = null;
+    #[ORM\Column(name:'EntTmpPtMidi',nullable: true)]
+    private ?bool $EntTmpPtMidi = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $EntTmpPl = null;
+    #[ORM\Column(name:'EntTmpPl',nullable: true)]
+    private ?bool $EntTmpPl = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $OtherAgence = null;
-
-
+    #[ORM\Column(name:'OtherAgence', nullable: true)]
+    private ?bool $OtherAgence = null;
 
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+
+
+    #[ORM\Column(length:255, nullable: true)]
     private ?string $UserSelect = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $Accpeter = null;
+    #[ORM\Column(name:'Accpeter', nullable: true)]
+    private ?bool $Accpeter = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"ImageProfile", referencedColumnName:"id")]
     private ?Imageprofile $ImageProfile = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdDisponibilite", referencedColumnName:"id")]
     private ?Disponibilite $IdDisponibilite = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"IdLv", referencedColumnName:"id")]
     private ?Languevivant $IdLv = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'NivEtude',length: 255, nullable: true)]
     private ?string $NivEtude = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'EntTmpPlDure',length: 255, nullable: true)]
     private ?string $EntTmpPlDure = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\JoinColumn(name:"FichierCv_id", referencedColumnName:"id")]
     private ?Fichierbooking $FichierCv = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'AdrInstagram',length: 255, nullable: true)]
     private ?string $AdrInstagram = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $PermisMoto = null;
+    #[ORM\Column(name:'PermisMoto', nullable: true)]
+    private ?bool $PermisMoto = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"FichierVoiture_id", referencedColumnName:"id")]
     private ?Fichierbooking $FichierVoiture = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"FichierMoto_id", referencedColumnName:"id")]
     private ?Fichierbooking $FichierMoto = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"FichierVital_id", referencedColumnName:"id")]
     private ?Fichierbooking $FichierVital = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"Signature_id", referencedColumnName:"id")]
     private ?Fichierbooking $Signature = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"AccordSig_id", referencedColumnName:"id")]
     private ?Fichierbooking $AccordSig = null;
 
-    #[ORM\ManyToOne(inversedBy: 'salaries')]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"iduserapi_id", referencedColumnName:"id")]
     private ?Userapi $iduserapi = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $natif = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'PageLinkedIn',length: 255, nullable: true)]
     private ?string $PageLinkedIn = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'TokenRobo',length: 255, nullable: true)]
     private ?string $TokenRobo = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $MajRobo = null;
+    #[ORM\Column(name:'MajRobo',nullable: true)]
+    private ?bool $MajRobo = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'DateSelectExport',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $DateSelectExport = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $NonInscrit = null;
+    #[ORM\Column(name:'NonInscrit',nullable: true)]
+    private ?bool $NonInscrit = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $FinEtude = null;
+    #[ORM\Column(name:'FinEtude', nullable: true)]
+    private ?bool $FinEtude = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $EntTmpWk = null;
+    #[ORM\Column(name:'EntTmpWk', nullable: true)]
+    private ?bool $EntTmpWk = null;
 
-    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $EntTmpSr = null;
+    #[ORM\Column(name:'EntTmpSr', nullable: true)]
+    private ?bool $EntTmpSr = null;
 
     #[ORM\ManyToOne]
+    #[ORM\JoinColumn(name:"AccordNonSig_id", referencedColumnName:"id")]
     private ?fichierbooking $AccordNonSig = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'excluMsg',length: 255, nullable: true)]
     private ?string $excluMsg = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(name:'excluDate',type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $excluDate = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name:'excluWrite',nullable: true)]
     private ?int $excluWrite = null;
 
     /**
@@ -943,12 +966,12 @@ class Salarie
         return $this;
     }
 
-    public function getVoiture(): ?int
+    public function isVoiture(): ?bool
     {
         return $this->Voiture;
     }
 
-    public function setVoiture(?int $Voiture): static
+    public function setVoiture(?bool $Voiture): static
     {
         $this->Voiture = $Voiture;
 
@@ -979,12 +1002,12 @@ class Salarie
         return $this;
     }
 
-    public function getExclu(): ?int
+    public function isExclu(): ?bool
     {
         return $this->Exclu;
     }
 
-    public function setExclu(?int $Exclu): static
+    public function setExclu(?bool $Exclu): static
     {
         $this->Exclu = $Exclu;
 
@@ -1147,12 +1170,12 @@ class Salarie
         return $this;
     }
 
-    public function getSelected(): ?int
+    public function isSelected(): ?bool
     {
         return $this->Selected;
     }
 
-    public function setSelected(?int $Selected): static
+    public function setSelected(?bool $Selected): static
     {
         $this->Selected = $Selected;
 
@@ -1219,12 +1242,12 @@ class Salarie
         return $this;
     }
 
-    public function getPermis(): ?int
+    public function isPermis(): ?bool
     {
         return $this->Permis;
     }
 
-    public function setPermis(?int $Permis): static
+    public function setPermis(?bool $Permis): static
     {
         $this->Permis = $Permis;
 
@@ -1243,24 +1266,24 @@ class Salarie
         return $this;
     }
 
-    public function getMoto(): ?int
+    public function isMoto(): ?bool
     {
         return $this->Moto;
     }
 
-    public function setMoto(?int $Moto): static
+    public function setMoto(?bool $Moto): static
     {
         $this->Moto = $Moto;
 
         return $this;
     }
 
-    public function getBac(): ?int
+    public function isBac(): ?bool
     {
         return $this->Bac;
     }
 
-    public function setBac(?int $Bac): static
+    public function setBac(?bool $Bac): static
     {
         $this->Bac = $Bac;
 
@@ -1459,60 +1482,60 @@ class Salarie
         return $this;
     }
 
-    public function getEvent(): ?int
+    public function isEvent(): ?bool
     {
         return $this->Event;
     }
 
-    public function setEvent(?int $Event): static
+    public function setEvent(?bool $Event): static
     {
         $this->Event = $Event;
 
         return $this;
     }
 
-    public function getEntTmpPtMatin(): ?int
+    public function isEntTmpPtMatin(): ?bool
     {
         return $this->EntTmpPtMatin;
     }
 
-    public function setEntTmpPtMatin(?int $EntTmpPtMatin): static
+    public function setEntTmpPtMatin(?bool $EntTmpPtMatin): static
     {
         $this->EntTmpPtMatin = $EntTmpPtMatin;
 
         return $this;
     }
 
-    public function getEntTmpPtMidi(): ?int
+    public function isEntTmpPtMidi(): ?bool
     {
         return $this->EntTmpPtMidi;
     }
 
-    public function setEntTmpPtMidi(?int $EntTmpPtMidi): static
+    public function setEntTmpPtMidi(?bool $EntTmpPtMidi): static
     {
         $this->EntTmpPtMidi = $EntTmpPtMidi;
 
         return $this;
     }
 
-    public function getEntTmpPl(): ?int
+    public function isEntTmpPl(): ?bool
     {
         return $this->EntTmpPl;
     }
 
-    public function setEntTmpPl(?int $EntTmpPl): static
+    public function setEntTmpPl(?bool $EntTmpPl): static
     {
         $this->EntTmpPl = $EntTmpPl;
 
         return $this;
     }
 
-    public function getOtherAgence(): ?int
+    public function isOtherAgence(): ?bool
     {
         return $this->OtherAgence;
     }
 
-    public function setOtherAgence(?int $OtherAgence): static
+    public function setOtherAgence(?bool $OtherAgence): static
     {
         $this->OtherAgence = $OtherAgence;
 
@@ -1541,12 +1564,12 @@ class Salarie
         return $this;
     }
 
-    public function getAccpeter(): ?int
+    public function isAccpeter(): ?bool
     {
         return $this->Accpeter;
     }
 
-    public function setAccpeter(?int $Accpeter): static
+    public function setAccpeter(?bool $Accpeter): static
     {
         $this->Accpeter = $Accpeter;
 
@@ -1637,12 +1660,12 @@ class Salarie
         return $this;
     }
 
-    public function getPermisMoto(): ?int
+    public function isPermisMoto(): ?bool
     {
         return $this->PermisMoto;
     }
 
-    public function setPermisMoto(?int $PermisMoto): static
+    public function setPermisMoto(?bool $PermisMoto): static
     {
         $this->PermisMoto = $PermisMoto;
 
@@ -1757,12 +1780,12 @@ class Salarie
         return $this;
     }
 
-    public function getMajRobo(): ?int
+    public function isMajRobo(): ?bool
     {
         return $this->MajRobo;
     }
 
-    public function setMajRobo(?int $MajRobo): static
+    public function setMajRobo(?bool $MajRobo): static
     {
         $this->MajRobo = $MajRobo;
 
@@ -1781,48 +1804,48 @@ class Salarie
         return $this;
     }
 
-    public function getNonInscrit(): ?int
+    public function isNonInscrit(): ?bool
     {
         return $this->NonInscrit;
     }
 
-    public function setNonInscrit(?int $NonInscrit): static
+    public function setNonInscrit(?bool $NonInscrit): static
     {
         $this->NonInscrit = $NonInscrit;
 
         return $this;
     }
 
-    public function getFinEtude(): ?int
+    public function isFinEtude(): ?bool
     {
         return $this->FinEtude;
     }
 
-    public function setFinEtude(?int $FinEtude): static
+    public function setFinEtude(?bool $FinEtude): static
     {
         $this->FinEtude = $FinEtude;
 
         return $this;
     }
 
-    public function getEntTmpWk(): ?int
+    public function isEntTmpWk(): ?bool
     {
         return $this->EntTmpWk;
     }
 
-    public function setEntTmpWk(?int $EntTmpWk): static
+    public function setEntTmpWk(?bool $EntTmpWk): static
     {
         $this->EntTmpWk = $EntTmpWk;
 
         return $this;
     }
 
-    public function getEntTmpSr(): ?int
+    public function isEntTmpSr(): ?bool
     {
         return $this->EntTmpSr;
     }
 
-    public function setEntTmpSr(?int $EntTmpSr): static
+    public function setEntTmpSr(?bool $EntTmpSr): static
     {
         $this->EntTmpSr = $EntTmpSr;
 

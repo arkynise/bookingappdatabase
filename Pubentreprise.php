@@ -102,7 +102,7 @@ class Pubentreprise
     private Collection $imagepubentreprises;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name:"imgPubEntreprise", referencedColumnName:"id")]
+    #[ORM\JoinColumn(name:"imgPubEntreprise_id", referencedColumnName:"id")]
     private ?imagepubentreprise $imgPubEntreprise = null;
 
     /**
@@ -116,6 +116,9 @@ class Pubentreprise
      */
     #[ORM\OneToMany(targetEntity: Retourpubentreprise::class, mappedBy: 'idPubEntreprise')]
     private Collection $retourpubentreprises;
+
+    #[ORM\Column(name:'idUserContact',nullable: true)]
+    private ?int $idUserContact = null;
 
     public function __construct()
     {
@@ -539,6 +542,18 @@ class Pubentreprise
                 $retourpubentreprise->setIdPubEntreprise(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIdUserContact(): ?int
+    {
+        return $this->idUserContact;
+    }
+
+    public function setIdUserContact(?int $idUserContact): static
+    {
+        $this->idUserContact = $idUserContact;
 
         return $this;
     }

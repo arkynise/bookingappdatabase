@@ -44,8 +44,8 @@ class Missiondispo
     #[ORM\Column(name:'fontBlanc',nullable: true)]
     private ?bool $fontBlanc = null;
 
-    #[ORM\ManyToOne(inversedBy: 'missiondispos')]
-    #[ORM\JoinColumn(name:"imgDsp", referencedColumnName:"id")]
+    #[ORM\OneToOne]
+    #[ORM\JoinColumn(name:"imgDsp_id", referencedColumnName:"id")]
     private ?Imagemsdispo $imgDsp = null;
 
     #[ORM\Column(nullable: true)]

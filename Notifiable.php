@@ -14,7 +14,7 @@ class Notifiable
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $notifiable = null;
+    private ?string $identifier = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $class = null;
@@ -24,14 +24,14 @@ class Notifiable
         return $this->id;
     }
 
-    public function getNotifiable(): ?string
+    public function getIdentifier(): ?string
     {
-        return $this->notifiable;
+        return $this->identifier;
     }
 
-    public function setNotifiable(?string $notifiable): static
+    public function setIdentifier(?string $identifier): static
     {
-        $this->notifiable = $notifiable;
+        $this->identifier = $identifier;
 
         return $this;
     }

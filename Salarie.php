@@ -26,7 +26,7 @@ class Salarie
     #[ORM\Column(name:'Nom',length: 255, nullable: true)]
     private ?string $Nom = null;
 
-    #[ORM\Column(name:'NomeJf',length: 255, nullable: true)]
+    #[ORM\Column(name:'NomJf',length: 255, nullable: true)]
     private ?string $NomeJf = null;
 
     #[ORM\Column(name:'Prenom',length: 255, nullable: true)]
@@ -35,13 +35,13 @@ class Salarie
     #[ORM\Column(name:'Etablissement',length: 255, nullable: true)]
     private ?string $Etablissement = null;
 
-    #[ORM\Column(name:'Adress1',length: 255, nullable: true)]
+    #[ORM\Column(name:'Adresse1',length: 255, nullable: true)]
     private ?string $Adress1 = null;
 
     #[ORM\Column(name:'Complement1',length: 255, nullable: true)]
     private ?string $Complement1 = null;
 
-    #[ORM\Column(name:'CodePosatl1',length: 255, nullable: true)]
+    #[ORM\Column(name:'CodePostal1',length: 255, nullable: true)]
     private ?string $CodePosatl1 = null;
 
     #[ORM\Column(name:'BureauDist1',length: 255, nullable: true)]
@@ -148,7 +148,7 @@ class Salarie
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
     #[ORM\JoinColumn(name:"IdCodeNatContrat", referencedColumnName:"id")]
-    private ?Naturecontart $IdCodeNatContrat = null;
+    private ?Naturecontrat $IdCodeNatContrat = null;
 
     #[ORM\Column(name:'FinPeriodeEssai',type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $FinPeriodeEssai = null;
@@ -274,14 +274,14 @@ class Salarie
 
 
 
-    #[ORM\Column(length:255, nullable: true)]
+    #[ORM\Column(name:'UserSelect',length:255, nullable: true)]
     private ?string $UserSelect = null;
 
     #[ORM\Column(name:'Accpeter', nullable: true)]
     private ?bool $Accpeter = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
-    #[ORM\JoinColumn(name:"ImageProfile", referencedColumnName:"id")]
+    #[ORM\JoinColumn(name:"ImageProfile_id", referencedColumnName:"id")]
     private ?Imageprofile $ImageProfile = null;
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
@@ -290,7 +290,7 @@ class Salarie
 
     #[ORM\ManyToOne(inversedBy: 'salaries')]
     #[ORM\JoinColumn(name:"IdLv", referencedColumnName:"id")]
-    private ?Languevivant $IdLv = null;
+    private ?Languevivante $IdLv = null;
 
     #[ORM\Column(name:'NivEtude',length: 255, nullable: true)]
     private ?string $NivEtude = null;
@@ -1050,12 +1050,12 @@ class Salarie
         return $this;
     }
 
-    public function getIdCodeNatContrat(): ?Naturecontart
+    public function getIdCodeNatContrat(): ?Naturecontrat
     {
         return $this->IdCodeNatContrat;
     }
 
-    public function setIdCodeNatContrat(?Naturecontart $IdCodeNatContrat): static
+    public function setIdCodeNatContrat(?Naturecontrat $IdCodeNatContrat): static
     {
         $this->IdCodeNatContrat = $IdCodeNatContrat;
 
@@ -1600,12 +1600,12 @@ class Salarie
         return $this;
     }
 
-    public function getIdLv(): ?Languevivant
+    public function getIdLv(): ?Languevivante
     {
         return $this->IdLv;
     }
 
-    public function setIdLv(?Languevivant $IdLv): static
+    public function setIdLv(?Languevivante $IdLv): static
     {
         $this->IdLv = $IdLv;
 

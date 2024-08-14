@@ -17,6 +17,7 @@ class Urgenceevent
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'urgenceevents')]
+    #[ORM\JoinColumn(name:"groupe", referencedColumnName:"id")]
     private ?groupeuser $groupe = null;
 
     #[ORM\Column(name:'dateCreation',type: Types::DATETIME_MUTABLE, nullable: true)]

@@ -70,7 +70,7 @@ class Prestation
     #[ORM\Column(name:'totalP',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $totalP = null;
 
-    #[ORM\Column(name:'totalBrut',type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'$totalBrut',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $totalBrut = null;
 
     #[ORM\Column(name:'intBrut',type: Types::DECIMAL, precision: 10, scale: 2)]

@@ -183,8 +183,6 @@ class Devis
     #[ORM\Column(name:'GrilleTarifaire',length: 255, nullable: true)]
     private ?string $GrilleTarifaire = null;
 
-    #[ORM\Column(name:'RecherchClient',nullable: true)]
-    private ?int $RecherchClient = null;
 
     #[ORM\Column(name:'obsLieu',length: 255, nullable: true)]
     private ?string $obsLieu = null;
@@ -234,6 +232,15 @@ class Devis
 
     #[ORM\Column(name:'IdEvent',nullable: true)]
     private ?int $IdEvent = null;
+
+    #[ORM\Column(name:'apartirFdr',nullable: true)]
+    private ?bool $apartirFdr = null;
+
+    #[ORM\Column(name:'modeSalon',nullable: true)]
+    private ?bool $modeSalon = null;
+
+    #[ORM\Column(name:'ModeRecalcule',nullable: true)]
+    private ?bool $ModeRecalcule = null;
 
     public function __construct()
     {
@@ -1116,6 +1123,42 @@ class Devis
     public function setIdEvent(?int $IdEvent): static
     {
         $this->IdEvent = $IdEvent;
+
+        return $this;
+    }
+
+    public function isApartirFdr(): ?bool
+    {
+        return $this->apartirFdr;
+    }
+
+    public function setApartirFdr(?bool $apartirFdr): static
+    {
+        $this->apartirFdr = $apartirFdr;
+
+        return $this;
+    }
+
+    public function isModeSalon(): ?bool
+    {
+        return $this->modeSalon;
+    }
+
+    public function setModeSalon(?bool $modeSalon): static
+    {
+        $this->modeSalon = $modeSalon;
+
+        return $this;
+    }
+
+    public function isModeRecalcule(): ?bool
+    {
+        return $this->ModeRecalcule;
+    }
+
+    public function setModeRecalcule(?bool $ModeRecalcule): static
+    {
+        $this->ModeRecalcule = $ModeRecalcule;
 
         return $this;
     }

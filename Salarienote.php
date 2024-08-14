@@ -21,6 +21,7 @@ class Salarienote
     private ?\DateTimeInterface $DateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'salarienotes')]
+    #[ORM\JoinColumn(name:"Ecritpar_id", referencedColumnName:"id")]
     private ?User $Ecritpar = null;
 
     #[ORM\ManyToOne(inversedBy: 'salarienotes')]

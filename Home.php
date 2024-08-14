@@ -13,7 +13,7 @@ class Home
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'homes')]
+    #[ORM\OneToOne]
     #[ORM\JoinColumn(name:"imageHome", referencedColumnName:"id")]
     private ?Media $imageHome = null;
 

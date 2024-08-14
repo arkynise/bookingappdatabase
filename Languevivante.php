@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LanguevivantRepository::class)]
-class Languevivant
+class Languevivante
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,19 +21,19 @@ class Languevivant
     #[ORM\Column(name:'NivUn',length: 255, nullable: true)]
     private ?string $NivUn = null;
 
-    #[ORM\Column(name:'IvDeux',length: 255, nullable: true)]
+    #[ORM\Column(name:'lvDeux',length: 255, nullable: true)]
     private ?string $IvDeux = null;
 
     #[ORM\Column(name:'NivDeux',length: 255, nullable: true)]
     private ?string $NivDeux = null;
 
-    #[ORM\Column(name:'IvTrois',length: 255, nullable: true)]
+    #[ORM\Column(name:'lvTrois',length: 255, nullable: true)]
     private ?string $IvTrois = null;
 
     #[ORM\Column(name:'NivTrois',length: 255, nullable: true)]
     private ?string $NivTrois = null;
 
-    #[ORM\Column(name:'IvQuatre',length: 255, nullable: true)]
+    #[ORM\Column(name:'lvQuatre',length: 255, nullable: true)]
     private ?string $IvQuatre = null;
 
     #[ORM\Column(name:'NivQuatre',length: 255, nullable: true)]

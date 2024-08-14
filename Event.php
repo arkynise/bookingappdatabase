@@ -237,6 +237,21 @@ class Event
     #[ORM\OneToMany(targetEntity: Eventurssaf::class, mappedBy: 'id_event')]
     private Collection $eventurssafs;
 
+    #[ORM\Column(name:'dureQuart',nullable: true)]
+    private ?int $dureQuart = null;
+
+    #[ORM\Column(name:'RemiseArgFact',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private ?string $RemiseArgFact = null;
+
+    #[ORM\Column(name:'RemisePrcFact',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private ?string $RemisePrcFact = null;
+
+    #[ORM\Column(name:'ObsRemiseFact',length: 255, nullable: true)]
+    private ?string $ObsRemiseFact = null;
+
+    #[ORM\Column(name:'RemiseFact',type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private ?string $RemiseFact = null;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -1219,6 +1234,66 @@ class Event
                 $eventurssaf->setIdEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDureQuart(): ?int
+    {
+        return $this->dureQuart;
+    }
+
+    public function setDureQuart(?int $dureQuart): static
+    {
+        $this->dureQuart = $dureQuart;
+
+        return $this;
+    }
+
+    public function getRemiseArgFact(): ?string
+    {
+        return $this->RemiseArgFact;
+    }
+
+    public function setRemiseArgFact(?string $RemiseArgFact): static
+    {
+        $this->RemiseArgFact = $RemiseArgFact;
+
+        return $this;
+    }
+
+    public function getRemisePrcFact(): ?string
+    {
+        return $this->RemisePrcFact;
+    }
+
+    public function setRemisePrcFact(?string $RemisePrcFact): static
+    {
+        $this->RemisePrcFact = $RemisePrcFact;
+
+        return $this;
+    }
+
+    public function getObsRemiseFact(): ?string
+    {
+        return $this->ObsRemiseFact;
+    }
+
+    public function setObsRemiseFact(?string $ObsRemiseFact): static
+    {
+        $this->ObsRemiseFact = $ObsRemiseFact;
+
+        return $this;
+    }
+
+    public function getRemiseFact(): ?string
+    {
+        return $this->RemiseFact;
+    }
+
+    public function setRemiseFact(?string $RemiseFact): static
+    {
+        $this->RemiseFact = $RemiseFact;
 
         return $this;
     }

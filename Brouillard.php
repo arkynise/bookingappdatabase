@@ -232,6 +232,12 @@ class Brouillard
     #[ORM\JoinColumn(name:"idEvent", referencedColumnName:"id")]
     private ?event $idEvent = null;
 
+    #[ORM\Column(name:'dureQuart',nullable: true)]
+    private ?int $dureQuart = null;
+
+    #[ORM\Column(name:'modeJ',nullable: true)]
+    private ?bool $modeJ = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -1097,6 +1103,30 @@ class Brouillard
     public function setMoisBr(?\DateTimeInterface $moisBr): static
     {
         $this->moisBr = $moisBr;
+
+        return $this;
+    }
+
+    public function getDureQuart(): ?int
+    {
+        return $this->dureQuart;
+    }
+
+    public function setDureQuart(?int $dureQuart): static
+    {
+        $this->dureQuart = $dureQuart;
+
+        return $this;
+    }
+
+    public function isModeJ(): ?bool
+    {
+        return $this->modeJ;
+    }
+
+    public function setModeJ(?bool $modeJ): static
+    {
+        $this->modeJ = $modeJ;
 
         return $this;
     }

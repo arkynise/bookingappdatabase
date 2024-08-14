@@ -14,19 +14,19 @@ class Grille2
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'heureDb',length: 255, nullable: true)]
     private ?string $heureDb = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(name:'heureFin',length: 255, nullable: true)]
     private ?string $heureFin = null;
 
     #[ORM\Column]
     private ?int $repas = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(name:'heureTravaille',length: 255)]
     private ?string $heureTravaille = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(name:'intBrut',type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $intBrut = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
@@ -106,6 +106,9 @@ class Grille2
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
     private ?string $tarif25 = null;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private ?string $tarif26 = null;
 
     public function getId(): ?int
     {
@@ -480,6 +483,18 @@ class Grille2
     public function setTarif25(?string $tarif25): static
     {
         $this->tarif25 = $tarif25;
+
+        return $this;
+    }
+
+    public function getTarif26(): ?string
+    {
+        return $this->tarif26;
+    }
+
+    public function setTarif26(?string $tarif26): static
+    {
+        $this->tarif26 = $tarif26;
 
         return $this;
     }

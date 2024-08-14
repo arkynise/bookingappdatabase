@@ -28,6 +28,10 @@ class Eventnote
     #[ORM\JoinColumn(name:"IdEvent_id", referencedColumnName:"id")]
     private ?Event $IdEvent = null;
 
+    #[ORM\ManyToOne(inversedBy: 'eventnotes')]
+    #[ORM\JoinColumn(name:"idType", referencedColumnName:"id")]
+    private ?typenote $idType = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +81,18 @@ class Eventnote
     public function setIdEvent(?Event $IdEvent): static
     {
         $this->IdEvent = $IdEvent;
+
+        return $this;
+    }
+
+    public function getIdType(): ?typenote
+    {
+        return $this->idType;
+    }
+
+    public function setIdType(?typenote $idType): static
+    {
+        $this->idType = $idType;
 
         return $this;
     }

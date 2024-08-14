@@ -66,7 +66,7 @@ class Contrat
     /**
      * @var Collection<int, Contrateffect>
      */
-    #[ORM\OneToMany(targetEntity: Contrateffect::class, mappedBy: 'idContrat')]
+    #[ORM\OneToMany(targetEntity: Contrataffect::class, mappedBy: 'idContrat')]
     private Collection $contrateffects;
 
     public function __construct()
@@ -271,7 +271,7 @@ class Contrat
         return $this->contrateffects;
     }
 
-    public function addContrateffect(Contrateffect $contrateffect): static
+    public function addContrateffect(Contrataffect $contrateffect): static
     {
         if (!$this->contrateffects->contains($contrateffect)) {
             $this->contrateffects->add($contrateffect);
@@ -281,7 +281,7 @@ class Contrat
         return $this;
     }
 
-    public function removeContrateffect(Contrateffect $contrateffect): static
+    public function removeContrateffect(Contrataffect $contrateffect): static
     {
         if ($this->contrateffects->removeElement($contrateffect)) {
             // set the owning side to null (unless already changed)

@@ -28,7 +28,7 @@ class Horairemsdispo
     private ?int $intFin = null;
 
     #[ORM\ManyToOne(inversedBy: 'horairemsdispos')]
-    #[ORM\JoinColumn(name:"idJour", referencedColumnName:"id")]
+    #[ORM\JoinColumn(name:"idJour_id", referencedColumnName:"id")]
     private ?Jourmsdispo $idJour = null;
 
     /**
